@@ -110,12 +110,12 @@ class _MyStatsState extends State<MyStats> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text("Mensuel",
+                          Text("Etat du budget",
                               style: GoogleFonts.roboto(
                                   fontSize: 23, fontWeight: FontWeight.w500)),
                         ],
                       )),
-                  PieChartWidget(),
+                  const PieChartWidget(),
                     Padding(
                       padding: const EdgeInsets.only(left:20),
                       child: Row(

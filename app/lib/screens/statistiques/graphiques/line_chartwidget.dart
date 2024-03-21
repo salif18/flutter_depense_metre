@@ -41,7 +41,7 @@ class LineChartWidget extends StatelessWidget {
                   maxY: 400000,
                   borderData: FlBorderData(show: false),
                   gridData: const FlGridData(show: true),
-                  // lineTouchData: myLineTouchData(modelLineData),
+                  lineTouchData: myLineTouchData(modelLineData),
                   titlesData: myLineTitlesData(),
                   lineBarsData: [
                     LineChartBarData(
@@ -120,44 +120,44 @@ class LineChartWidget extends StatelessWidget {
                 month = "";
             }
             String montant;
-            int index = touchedSpot.x.toInt().clamp(0, modelLineData.length -1);
+            // int index = touchedSpot.x.toInt().clamp(1, modelLineData.length -1);
             
-            switch (index) {
+            switch (touchedSpot.x.toInt().clamp(1, modelLineData.length-1)) {
               case 1:
-                montant = "${modelLineData[index].y}";
+                montant = "${modelLineData[1].y}";
                 break;
               case 2:
-                montant = "${modelLineData[index].y}";
+                montant = "${modelLineData[2].y}";
                 break;
               case 3:
-                montant = "${modelLineData[index].y}";
+                montant = "${modelLineData[3].y}";
                 break;
               case 4:
-                montant = "${modelLineData[index].y}";
+                montant = "${modelLineData[4].y}";
                 break;
               case 5:
-                montant = "${modelLineData[index].y}";
+                montant = "${modelLineData[5].y}";
                 break;
               case 6:
-                montant = "${modelLineData[index].y}";
+                montant = "${modelLineData[6].y}";
                 break;
               case 7:
-                montant = "${modelLineData[index].y}";
+                montant = "${modelLineData[7].y}";
                 break;
               case 8:
-                montant = "${modelLineData[index].y}";
+                montant = "${modelLineData[8].y}";
                 break;
               case 9:
-                montant = "${modelLineData[index].y}";
+                montant = "${modelLineData[9].y}";
                 break;
               case 10:
-                montant = "${modelLineData[index].y}";
+                montant = "${modelLineData[10].y}";
                 break;
               case 11:
-                montant = "${modelLineData[index].y}";
+                montant = "${modelLineData[11].y}";
                 break;
               case 12:
-                montant = "${modelLineData[index].y}";
+                montant = "${modelLineData[12].y}";
                 break;
               default:
                 montant = "";

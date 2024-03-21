@@ -42,7 +42,7 @@ class _BarChartWidgetState extends State<BarChartWidget> {
                 swapAnimationCurve: Curves.linear,
                 BarChartData(
                     minY: 0,
-                    maxY: 500000,
+                    maxY: 400000,
                     gridData: const FlGridData(show: false),
                     borderData: FlBorderData(show: false),
                     titlesData: myTitlesData(),
@@ -58,10 +58,10 @@ class _BarChartWidgetState extends State<BarChartWidget> {
                                     begin: Alignment.topCenter,
                                     end: Alignment.bottomCenter
                                     ),
-                                  // width: 25,
+                                  // width: 22,
                                   backDrawRodData: BackgroundBarChartRodData(
                                       show: true,
-                                      toY: 500000,
+                                      toY: 400000,
                                       color: Colors.black.withOpacity(0.4)),
                                   borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(10),
