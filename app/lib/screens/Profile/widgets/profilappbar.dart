@@ -26,7 +26,7 @@ class SettingsAppBar extends StatelessWidget implements PreferredSizeWidget {
               color:Colors.black),
             ),
             centerTitle: true,
-            backgroundColor: Colors.grey[100],
+            backgroundColor: Colors.grey[200],
             elevation: 0,
       ),
     );

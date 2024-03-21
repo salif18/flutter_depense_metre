@@ -48,6 +48,13 @@ class _SingleBudgetState extends State<SingleBudget> {
       ),
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Container(
+              alignment: Alignment.centerLeft,
+              child: Text("Vos differentes transactions sur ce budget du mois",
+              style:GoogleFonts.roboto(fontSize:20,fontWeight:FontWeight.w400))),
+          ),
           if (_receivedData?.depense != null)
             Expanded(
               child: ListView.builder(

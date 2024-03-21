@@ -71,6 +71,12 @@ class _BudgetsState extends State<Budgets> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Padding(padding: const EdgeInsets.all(20),
+            child:Container(
+              alignment: Alignment.centerLeft,
+              child: Text("Archives de vos Budgets",
+              style:GoogleFonts.aBeeZee(fontSize:20, fontWeight:FontWeight.w500)),
+            )),
             StreamBuilder(
                 stream: _streamBudgets.stream,
                 builder: (context, snaptshot) {

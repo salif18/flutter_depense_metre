@@ -119,6 +119,7 @@ class _MainRoutesState extends State<MainRoutes> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
+            backgroundColor: Colors.grey[200],
             title: Center(child: Text("Actions",
             style: GoogleFonts.aBeeZee(fontSize:20,fontWeight:FontWeight.w600))),
             contentPadding:
@@ -132,15 +133,16 @@ class _MainRoutesState extends State<MainRoutes> {
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {
-                            return const AlertDialog(
-                              content: CreateCategories(),
+                            return AlertDialog(
+                              backgroundColor: Colors.grey[200],
+                              content:const CreateCategories(),
                             );
                           },
                         );
                       },
-                      child: Text("Créer catégories",
+                      child: Text("Créer vos catégories",
                           style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500))),
+                              fontSize: 20, fontWeight: FontWeight.w500, color:Colors.blue))),
                   const Divider(
                     height: 2,
                   ),
@@ -148,9 +150,9 @@ class _MainRoutesState extends State<MainRoutes> {
                       onPressed: () {
                         _showAdd(context);
                       },
-                      child: Text("Enregistrer dépenses",
+                      child: Text("Enregistrer vos dépenses",
                           style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500)))
+                              fontSize: 20, fontWeight: FontWeight.w500, color:Colors.blue)))
                 ]),
           );
         });

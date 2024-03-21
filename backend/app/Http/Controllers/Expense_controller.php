@@ -100,7 +100,8 @@ class Expense_Controller extends Controller
                 ->whereDate('date_expenses', $currentDate)
                 ->orderByDesc("date_expenses")
                 ->with("category")
-                ->get();
+                ->get()
+                ;
 
             $totalDay = $expenses->sum("amount");
             // Retourner les dépenses au format JSON ou à la vue, selon vos besoins

@@ -17,9 +17,7 @@ class PieChartWidget extends StatefulWidget {
 
 class _PieChatWidgetState extends State<PieChartWidget> {
   bool isPlaying = true;
- List<Color> lineGradiens = [
-  Colors.redAccent, Colors.orangeAccent
- ];
+ 
   @override
   Widget build(BuildContext context) {
     return Consumer<StatisticsProvider>(
@@ -36,11 +34,11 @@ class _PieChatWidgetState extends State<PieChartWidget> {
                   ModelPieData(
                       value: item?.epargnes!.toDouble() ?? 0.0,
                       title: "Epargnes",
-                      color: Colors.green),
+                      color: Colors.purple),
                   ModelPieData(
                       value: item?.budgetTotal!.toDouble() ?? 0.0,
                       title: "Dépenses",
-                      color: lineGradiens.last.withOpacity(0.8)
+                      color: Colors.pinkAccent.withOpacity(0.8)
                       
                       )
                 ];
@@ -78,7 +76,7 @@ class _PieChatWidgetState extends State<PieChartWidget> {
                                     titleStyle: GoogleFonts.roboto(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w500,
-                                        color: Colors.black),
+                                        color: Colors.orangeAccent),
                                     color: item.value.color,
                                   ),
                                 )

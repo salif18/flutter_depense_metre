@@ -140,16 +140,15 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                       );
                     } else {
                       return Expanded(
-                          child: ListView.builder(
-                        itemCount: expenseStream.length,
-                        itemBuilder: (context, index) {
-                          return Column(
-                              children: expenseStream.map((expense) {
+                        child: ListView.builder(
+                          itemCount: expenseStream.length,
+                          itemBuilder: (context, index) {
+                            final expense = expenseStream[index];
                             final category = expense.category;
                             return _expenses(context, expense, category);
-                          }).toList());
-                        },
-                      ));
+                          },
+                        ),
+                      );
                     }
                   } else {
                     return Center(

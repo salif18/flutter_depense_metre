@@ -62,10 +62,11 @@ class _CreateCategoriesState extends State<CreateCategories> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const Padding(
-                  padding: EdgeInsets.all(20),
-                  child: Text("Creer vos categories")),
+              Padding(
+                  padding:const EdgeInsets.all(20),
+                  child: Text("Personnaliser vos catégories",style:GoogleFonts.roboto(fontSize:20,fontWeight:FontWeight.w300))),
               _categorieForm(context),
+              const SizedBox(height: 20),
               _buttonSend(context)
             ],
           ),
@@ -76,7 +77,7 @@ class _CreateCategoriesState extends State<CreateCategories> {
 
   Widget _categorieForm(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(0.0),
         child: TextFormField(
             controller: nameCategorie,
             validator: (value) {
@@ -89,7 +90,7 @@ class _CreateCategoriesState extends State<CreateCategories> {
             decoration: InputDecoration(
               fillColor: const Color.fromARGB(255, 250, 250, 253),
               filled: true,
-              hintText: "Nom de la categorie",
+              hintText: "Nom de la catégorie",
               hintStyle: GoogleFonts.roboto(
                 fontSize: 18,
                 fontWeight: FontWeight.w400,
@@ -109,10 +110,14 @@ class _CreateCategoriesState extends State<CreateCategories> {
 
   Widget _buttonSend(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.symmetric(vertical:  10),
         child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF292D4E),
+            minimumSize:const Size(double.infinity, 50)
+          ),
             onPressed: sendCategorie,
             child:
-                Text("Sauvegarder", style: GoogleFonts.roboto(fontSize: 20))));
+                Text("Sauvegarder", style: GoogleFonts.roboto(fontSize: 20,color:Colors.grey[200]))));
   }
 }

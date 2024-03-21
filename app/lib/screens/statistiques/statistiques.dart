@@ -63,70 +63,73 @@ class _MyStatsState extends State<MyStats> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: RefreshIndicator(
-        backgroundColor: const Color.fromARGB(255, 34, 12, 49),
-        color: Colors.grey[100],
-        onRefresh: _refresh,
-        child: Scaffold(
-          backgroundColor: Colors.grey[100],
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                const MyYearBalance(),
-                Container(height: 1, width: 350, color: Colors.grey[400]),
-                const SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsets.only(left: 24, bottom: 10),
-                  child: Row(
-                    children: [
-                      Text(
-                        "Mensuelle",
-                        style: GoogleFonts.roboto(
-                            fontSize: 24, fontWeight: FontWeight.w500),
-                      )
-                    ],
-                  ),
-                ),
-                const Mensuels(),
-                const BonusDay(),
-                const AnalyseGeneral(),
-                const SizedBox(height: 20),
-                Padding(
-                    padding: const EdgeInsets.only(left:20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text("Hebdomadaire",
-                            style: GoogleFonts.roboto(
-                                fontSize: 23, fontWeight: FontWeight.w500)),
-                      ],
-                    )),
-                const BarChartWidget(),
-                Padding(
-                    padding: const EdgeInsets.only(left:20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text("Mensuel",
-                            style: GoogleFonts.roboto(
-                                fontSize: 23, fontWeight: FontWeight.w500)),
-                      ],
-                    )),
-                PieChartWidget(),
+    return Container(
+      color: Colors.grey[100],
+      child: SafeArea(
+        child: RefreshIndicator(
+          backgroundColor: const Color.fromARGB(255, 34, 12, 49),
+          color: Colors.grey[100],
+          onRefresh: _refresh,
+          child: Scaffold(
+            backgroundColor: Colors.grey[100],
+            body: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const MyYearBalance(),
+                  Container(height: 1, width: 350, color: Colors.grey[400]),
+                  const SizedBox(height: 20),
                   Padding(
-                    padding: const EdgeInsets.only(left:20),
+                    padding: const EdgeInsets.only(left: 24, bottom: 10),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text("Statistiques annuel",
-                            style: GoogleFonts.roboto(
-                                fontSize: 23, fontWeight: FontWeight.w500)),
+                        Text(
+                          "Mensuelle",
+                          style: GoogleFonts.roboto(
+                              fontSize: 24, fontWeight: FontWeight.w500),
+                        )
                       ],
-                    )),
-                const LineChartWidget(),
-                const SizedBox(height: 20)
-              ],
+                    ),
+                  ),
+                  const Mensuels(),
+                  const BonusDay(),
+                  const AnalyseGeneral(),
+                  const SizedBox(height: 20),
+                  Padding(
+                      padding: const EdgeInsets.only(left:20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text("Hebdomadaire",
+                              style: GoogleFonts.roboto(
+                                  fontSize: 23, fontWeight: FontWeight.w500)),
+                        ],
+                      )),
+                  const BarChartWidget(),
+                  Padding(
+                      padding: const EdgeInsets.only(left:20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text("Mensuel",
+                              style: GoogleFonts.roboto(
+                                  fontSize: 23, fontWeight: FontWeight.w500)),
+                        ],
+                      )),
+                  PieChartWidget(),
+                    Padding(
+                      padding: const EdgeInsets.only(left:20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text("Statistiques annuel",
+                              style: GoogleFonts.roboto(
+                                  fontSize: 23, fontWeight: FontWeight.w500)),
+                        ],
+                      )),
+                  const LineChartWidget(),
+                  const SizedBox(height: 20)
+                ],
+              ),
             ),
           ),
         ),

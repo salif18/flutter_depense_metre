@@ -42,7 +42,7 @@ class _BarChartWidgetState extends State<BarChartWidget> {
                 swapAnimationCurve: Curves.linear,
                 BarChartData(
                     minY: 0,
-                    maxY: 200000,
+                    maxY: 500000,
                     gridData: const FlGridData(show: false),
                     borderData: FlBorderData(show: false),
                     titlesData: myTitlesData(),
@@ -61,7 +61,7 @@ class _BarChartWidgetState extends State<BarChartWidget> {
                                   // width: 25,
                                   backDrawRodData: BackgroundBarChartRodData(
                                       show: true,
-                                      toY: 200000,
+                                      toY: 500000,
                                       color: Colors.black.withOpacity(0.4)),
                                   borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(10),
@@ -92,6 +92,7 @@ class _BarChartWidgetState extends State<BarChartWidget> {
     return BarTouchData(touchTooltipData:
         BarTouchTooltipData(
           tooltipBgColor: Colors.transparent,
+          tooltipMargin: -10,
           getTooltipItem: (group, groupIndex, rod, rodIndex) {
       String weekDay;
       switch (group.x) {

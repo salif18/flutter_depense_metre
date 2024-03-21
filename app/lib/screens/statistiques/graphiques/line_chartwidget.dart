@@ -195,7 +195,7 @@ class LineChartWidget extends StatelessWidget {
         bottomTitles: AxisTitles(
             sideTitles: SideTitles(
                 showTitles: true,
-                reservedSize: 55,
+                reservedSize: 55,         
                 getTitlesWidget: namedYear)));
   }
 
