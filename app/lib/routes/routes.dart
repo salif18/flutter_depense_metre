@@ -1,0 +1,158 @@
+import 'package:flutter/material.dart';
+import 'package:gestionary/screens/home/home.dart';
+import 'package:gestionary/screens/Profile/profil.dart';
+import 'package:gestionary/screens/save_expense/save_categorie.dart';
+import 'package:gestionary/screens/save_expense/saveexpense.dart';
+import 'package:gestionary/screens/statistiques/statistiques.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:line_icons/line_icons.dart';
+
+class MainRoutes extends StatefulWidget {
+  const MainRoutes({super.key});
+
+  @override
+  State<MainRoutes> createState() => _MainRoutesState();
+}
+
+class _MainRoutesState extends State<MainRoutes> {
+  int _currentIndex = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: IndexedStack(
+        index: _currentIndex,
+        children: const [
+          Home(),
+          MyStats(),
+          MyProfile(),
+        ],
+      ),
+      bottomNavigationBar: _buildBottomNavigationBar(),
+    );
+  }
+
+  //bottomNavigationBar
+  Widget _buildBottomNavigationBar() {
+    return Container(
+      color: Colors.grey[200],
+      padding: const EdgeInsets.all(10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(2),
+            decoration: BoxDecoration(
+              color: const Color(0xFF292D4E),
+              borderRadius: BorderRadius.circular(50),
+            ),
+            child: SafeArea(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                child: GNav(
+                  onTabChange: (index) {
+                    setState(() {
+                      _currentIndex = index;
+                    });
+                  },
+                  tabBackgroundColor: Colors.white,
+                  iconSize: 28,
+                  duration: const Duration(milliseconds: 600),
+                  curve: Curves.easeInOut,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                  color: Colors.white,
+                  textSize: 20,
+                  textStyle: GoogleFonts.roboto(
+                      fontSize: 20, fontWeight: FontWeight.w500),
+                  style: GnavStyle.google,
+                  gap: 10,
+                  tabs: const [
+                    GButton(icon: LineIcons.home, text: "Home"),
+                    GButton(icon: Icons.bar_chart_rounded, text: "Stats"),
+                    GButton(icon: Icons.person_2_outlined, text: "Profil"),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          CircleAvatar(
+            radius: 35,
+            backgroundColor: const Color(0xFF292D4E),
+            child: IconButton(
+              onPressed: () {
+                awesomeWidget(context);
+              },
+              icon: const Icon(Icons.add, size: 33, color: Colors.white),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+//showModalBottomSheet la fenetre modale contenant le formulaire
+  void _showAdd(BuildContext context) {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+            padding: const EdgeInsets.all(20),
+            height: MediaQuery.of(context).size.height * 0.9,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(25),
+                topRight: Radius.circular(25),
+              ),
+            ),
+            child: const SaveExpenses());
+      },
+    );
+  }
+
+// fenetre pour ajouter categorie
+  void awesomeWidget(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Center(child: Text("Actions",
+            style: GoogleFonts.aBeeZee(fontSize:20,fontWeight:FontWeight.w600))),
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            content: Column(
+                mainAxisSize: MainAxisSize
+                    .min, //pour que l'espace column s'adapte a la taille du contenu
+                children: [
+                  TextButton(
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const AlertDialog(
+                              content: CreateCategories(),
+                            );
+                          },
+                        );
+                      },
+                      child: Text("Créer catégories",
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500))),
+                  const Divider(
+                    height: 2,
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        _showAdd(context);
+                      },
+                      child: Text("Enregistrer dépenses",
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500)))
+                ]),
+          );
+        });
+  }
+}
