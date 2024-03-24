@@ -103,11 +103,14 @@ class _MainRoutesState extends State<MainRoutes> {
       isScrollControlled: true,
       context: context,
       builder: (BuildContext context) {
+        ThemeProvider provider = Provider.of<ThemeProvider>(context);
+        Color? backgroundDark = provider.colorBackground;
+        bool isDark = provider.isDark;
         return Container(
             padding: const EdgeInsets.all(20),
             height: MediaQuery.of(context).size.height * 0.9,
             decoration: BoxDecoration(
-              color: Colors.grey[200],
+              color: isDark ? backgroundDark : Colors.grey[200],
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(25),
                 topRight: Radius.circular(25),
@@ -123,12 +126,18 @@ class _MainRoutesState extends State<MainRoutes> {
     showDialog(
         context: context,
         builder: (BuildContext context) {
+          ThemeProvider provider = Provider.of<ThemeProvider>(context);
+          Color? containerBg = provider.containerBackg;
+          Color? textDark = provider.colorText;
+          bool isDark = provider.isDark;
           return AlertDialog(
-            backgroundColor: Colors.grey[200],
+            backgroundColor: isDark ? containerBg : Colors.grey[200],
             title: Center(
                 child: Text("Actions",
                     style: GoogleFonts.aBeeZee(
-                        fontSize: 20, fontWeight: FontWeight.w600))),
+                        color: isDark ? textDark : null,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600))),
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             content: Column(
@@ -141,7 +150,7 @@ class _MainRoutesState extends State<MainRoutes> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              backgroundColor: Colors.grey[200],
+                              backgroundColor: isDark ? containerBg :Colors.grey[200],
                               content: const CreateCategories(),
                             );
                           },

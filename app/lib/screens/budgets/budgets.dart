@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_budget.dart';
 import 'package:gestionary/models/budget.dart';
 import 'package:gestionary/providers/auth_provider.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:gestionary/screens/budgets/addbudgets.dart';
 import 'package:gestionary/screens/budgets/details/singlebudget.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -51,16 +52,21 @@ class _BudgetsState extends State<Budgets> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    Color? backgroundDark = provider.colorBackground;
+    Color? containerBg = provider.containerBackg;
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: isDark? backgroundDark :Colors.grey[300],
       appBar: AppBar(
         toolbarHeight: 80,
-        backgroundColor: const Color(0xFF292D4E),
+        backgroundColor: isDark ?backgroundDark :const Color(0xFF292D4E),
         elevation: 0,
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: Icon(Icons.arrow_back_ios_new,
-                color: Colors.grey[100], size: 25)),
+                color: isDark ? textDark :Colors.grey[100], size: 25)),
         centerTitle: true,
         title: Text("Budgets",
             style: GoogleFonts.roboto(
@@ -75,7 +81,9 @@ class _BudgetsState extends State<Budgets> {
             child:Container(
               alignment: Alignment.centerLeft,
               child: Text("Archives de vos Budgets",
-              style:GoogleFonts.aBeeZee(fontSize:20, fontWeight:FontWeight.w500)),
+              style:GoogleFonts.aBeeZee(
+                color:isDark ? textDark : null,
+                fontSize:20, fontWeight:FontWeight.w500)),
             )),
             StreamBuilder(
                 stream: _streamBudgets.stream,
@@ -91,11 +99,12 @@ class _BudgetsState extends State<Budgets> {
                     if (data.isNotEmpty) {
                       return Column(
                           children: data.map((item) {
-                        return _cardBudget(context, item);
+                        return _cardBudget(context, item, isDark, containerBg);
                       }).toList());
                     } else {
                       return Text("aucuns donnees",
                           style: GoogleFonts.roboto(
+                             color:isDark ? textDark : null,
                               fontSize: 20, fontWeight: FontWeight.w500));
                     }
                   } else {
@@ -109,7 +118,7 @@ class _BudgetsState extends State<Budgets> {
           Column(mainAxisAlignment: MainAxisAlignment.end, children: [
         FloatingActionButton(
           backgroundColor: Colors.grey[200],
-          onPressed: () => _showAddBudget(context),
+          onPressed: () => _showAddBudget(context,isDark ,backgroundDark , textDark),
           child: const Icon(Icons.add, size: 33),
         ),
         const SizedBox(
@@ -120,7 +129,7 @@ class _BudgetsState extends State<Budgets> {
   }
 
 //card widget
-  Widget _cardBudget(BuildContext context, item) {
+  Widget _cardBudget(BuildContext context, item, isDark, conteinerBg) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
@@ -133,7 +142,7 @@ class _BudgetsState extends State<Budgets> {
         child: Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-              color: const Color(0xFF292D4E),
+              color: isDark ? conteinerBg:const Color(0xFF292D4E),
               borderRadius: BorderRadius.circular(15)),
           width: MediaQuery.of(context).size.width,
           child: Column(
@@ -157,7 +166,7 @@ class _BudgetsState extends State<Budgets> {
     );
   }
 
-  _showAddBudget(BuildContext context) {
+  _showAddBudget(BuildContext context,isDark ,background , textDark) {
     showModalBottomSheet(
         isScrollControlled: true,
         context: context,
@@ -166,7 +175,7 @@ class _BudgetsState extends State<Budgets> {
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(25), topRight: Radius.circular(25)),
-              color: Colors.grey[200],
+              color: isDark ? background :Colors.grey[200],
             ),
             padding: const EdgeInsets.all(20),
             height: MediaQuery.of(context).size.height * 0.6,

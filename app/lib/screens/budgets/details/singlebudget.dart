@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gestionary/models/budget.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class SingleBudget extends StatefulWidget {
   final ModelBudgets? itemPassToProps;
@@ -21,12 +23,17 @@ class _SingleBudgetState extends State<SingleBudget> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    Color? backgroundDark = provider.colorBackground;
+    Color? containerBg = provider.containerBackg;
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: isDark? backgroundDark :Colors.grey[300],
       appBar: AppBar(
         toolbarHeight: 80,
         elevation: 0,
-        backgroundColor: const Color(0xFF292D4E),
+        backgroundColor: isDark ? backgroundDark :const Color(0xFF292D4E),
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -53,7 +60,9 @@ class _SingleBudgetState extends State<SingleBudget> {
             child: Container(
               alignment: Alignment.centerLeft,
               child: Text("Vos differentes transactions sur ce budget du mois",
-              style:GoogleFonts.roboto(fontSize:20,fontWeight:FontWeight.w400))),
+              style:GoogleFonts.roboto(
+                color:isDark ? textDark :null,
+                fontSize:20,fontWeight:FontWeight.w400))),
           ),
           if (_receivedData?.depense != null)
             Expanded(
@@ -63,7 +72,7 @@ class _SingleBudgetState extends State<SingleBudget> {
                 itemBuilder: (context, index) {
                   List<ExpensesOfBudget?> expenses = _receivedData!.depense;
                   ExpensesOfBudget? item = expenses[index];
-                  return _detailExpenses(context, item);
+                  return _detailExpenses(context, item, isDark ,containerBg);
                 },
               ),
             ),
@@ -81,14 +90,14 @@ class _SingleBudgetState extends State<SingleBudget> {
     );
   }
 
-  Widget _detailExpenses(BuildContext context, item) {
+  Widget _detailExpenses(BuildContext context, item, isDark ,containerDark) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal:10,vertical: 5),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
         height: 130,
         decoration: BoxDecoration(
-            color: const Color(0xFF292D4E),
+            color: isDark ? containerDark :const Color(0xFF292D4E),
             borderRadius: BorderRadius.circular(10)),
         child:Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

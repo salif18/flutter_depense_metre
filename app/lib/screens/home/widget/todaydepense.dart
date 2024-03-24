@@ -108,7 +108,7 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                           Text(
                             "$totalDay",
                             style: GoogleFonts.roboto(
-                                color: isDark ? textDark : null,
+                                color: Colors.red,
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600),
                           ),
@@ -206,7 +206,7 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
               children: [
                 Text("${expense.amount}",
                     style: GoogleFonts.roboto(
-                        color: isDark ? textDark : null,
+                        color: Colors.amber,
                         fontSize: 20,
                         fontWeight: FontWeight.w600)),
                 const SizedBox(

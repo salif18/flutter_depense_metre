@@ -111,7 +111,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                           Text(
                             "$totalMonth",
                             style: GoogleFonts.roboto(
-                              color:isDark ? textDark : null,
+                              color:Colors.red,
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(width: 10),
@@ -199,7 +199,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
               children: [
                 Text("${expense.amount}",
                     style: GoogleFonts.roboto(
-                      color:isDark ? textDark :null,
+                      color:Colors.amber,
                         fontSize: 20, fontWeight: FontWeight.w600)),
                 const SizedBox(
                   width: 10,

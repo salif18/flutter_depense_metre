@@ -4,7 +4,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_categories.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class CreateCategories extends StatefulWidget {
   const CreateCategories({super.key});
@@ -40,8 +42,10 @@ class _CreateCategoriesState extends State<CreateCategories> {
         if (res.statusCode == 201) {
           _cateApi.showSnackBarSuccessPersonalized(
               context, decodedData["message"]);
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const CreateCategories()));
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const CreateCategories()));
         } else {
           _cateApi.showSnackBarErrorPersonalized(
               context, decodedData["message"]);
@@ -55,6 +59,9 @@ class _CreateCategoriesState extends State<CreateCategories> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    Color? textDark = provider.colorText;
+    bool isDark = provider.isDark;
     return Container(
       padding: const EdgeInsets.all(20),
       child: Form(
@@ -63,8 +70,12 @@ class _CreateCategoriesState extends State<CreateCategories> {
           child: Column(
             children: [
               Padding(
-                  padding:const EdgeInsets.all(20),
-                  child: Text("Personnaliser vos catégories",style:GoogleFonts.roboto(fontSize:20,fontWeight:FontWeight.w300))),
+                  padding: const EdgeInsets.all(20),
+                  child: Text("Personnaliser vos catégories",
+                      style: GoogleFonts.roboto(
+                          color: isDark ? textDark : null,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w300))),
               _categorieForm(context),
               const SizedBox(height: 20),
               _buttonSend(context)
@@ -110,14 +121,14 @@ class _CreateCategoriesState extends State<CreateCategories> {
 
   Widget _buttonSend(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.symmetric(vertical:  10),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF292D4E),
-            minimumSize:const Size(double.infinity, 50)
-          ),
+            style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF292D4E),
+                minimumSize: const Size(double.infinity, 50)),
             onPressed: sendCategorie,
-            child:
-                Text("Sauvegarder", style: GoogleFonts.roboto(fontSize: 20,color:Colors.grey[200]))));
+            child: Text("Sauvegarder",
+                style: GoogleFonts.roboto(
+                    fontSize: 20, color: Colors.grey[200]))));
   }
 }

@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_budget.dart';
 import 'package:gestionary/providers/auth_provider.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:gestionary/screens/save_expense/saveexpense.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -68,11 +69,16 @@ class _AddBudgetState extends State<AddBudget> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    Color? backgroundDark = provider.colorBackground;
+    Color? containerBg = provider.containerBackg;
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: isDark ? backgroundDark :Colors.grey[200],
       appBar: AppBar(
         toolbarHeight: 85,
-        backgroundColor: Colors.grey[200],
+        backgroundColor: isDark ? backgroundDark :Colors.grey[200],
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: Container(
@@ -87,7 +93,7 @@ class _AddBudgetState extends State<AddBudget> {
       body: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDark ? containerBg :Colors.white,
           borderRadius: BorderRadius.circular(20),
         ),
         child: SingleChildScrollView(
@@ -95,7 +101,7 @@ class _AddBudgetState extends State<AddBudget> {
               key: _formKey,
               child: Column(
                 children: [
-                  _text(context),
+                  _text(context,isDark ,textDark),
                   Padding(
                     padding: const EdgeInsets.all(20),
                     child: TextFormField(
@@ -136,7 +142,7 @@ class _AddBudgetState extends State<AddBudget> {
     );
   }
 
-  Widget _text(BuildContext context) {
+  Widget _text(BuildContext context, isDark ,textDark) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -147,7 +153,7 @@ class _AddBudgetState extends State<AddBudget> {
             child: Text("Budget du mois",
                 style: GoogleFonts.roboto(
                     fontSize: 24,
-                    color: Colors.black,
+                    color: isDark ? textDark:Colors.black,
                     fontWeight: FontWeight.w500)),
           ),
           Padding(
@@ -156,7 +162,7 @@ class _AddBudgetState extends State<AddBudget> {
                 "Ajouter le budget du mois pour pouvoir enregistrer vos depenses du mois en cours",
                 style: GoogleFonts.aBeeZee(
                     fontSize: 16,
-                    color: Colors.black,
+                    color:  isDark ? textDark:Colors.black,
                     fontWeight: FontWeight.w300)),
           )
         ],

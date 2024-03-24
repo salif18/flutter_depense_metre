@@ -8,6 +8,7 @@ import 'package:gestionary/api/api_categories.dart';
 import 'package:gestionary/api/api_depense.dart';
 import 'package:gestionary/models/categories.dart';
 import 'package:gestionary/providers/auth_provider.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:gestionary/screens/budgets/addbudgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -131,11 +132,16 @@ class _SaveExpensesState extends State<SaveExpenses> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    Color? backgroundDark = provider.colorBackground;
+    Color? containerBg = provider.containerBackg;
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor:isDark? backgroundDark: Colors.grey[200],
       appBar: AppBar(
         toolbarHeight: 85,
-        backgroundColor: Colors.grey[200],
+        backgroundColor: isDark? backgroundDark:Colors.grey[200],
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: Container(
@@ -143,7 +149,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
                 width: 35,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
-                    color: Colors.grey[100]
+                    color: isDark? backgroundDark:Colors.grey[100]
                     // const Color.fromARGB(255, 60, 66, 122)
                     ),
                 child: Icon(Icons.arrow_back_ios_new_rounded,
@@ -152,13 +158,13 @@ class _SaveExpensesState extends State<SaveExpenses> {
       body: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDark? containerBg:Colors.white,
           borderRadius: BorderRadius.circular(20),
         ),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              _text(context),
+              _text(context,isDark ,textDark),
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: Form(
@@ -182,7 +188,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
     );
   }
 
-  Widget _text(BuildContext context) {
+  Widget _text(BuildContext context,isDark,textDark) {
     return Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -193,7 +199,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
               child: Text("Nouvelles dépenses",
                   style: GoogleFonts.roboto(
                       fontSize: 24,
-                      color: Colors.black,
+                      color: isDark ? textDark:Colors.black,
                       fontWeight: FontWeight.w500)),
             ),
             Padding(
@@ -202,7 +208,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
                   "Enregistrer toutes vos dépenses effectuees de la journee",
                   style: GoogleFonts.aBeeZee(
                       fontSize: 16,
-                      color: const Color.fromARGB(255, 46, 44, 44),
+                      color: isDark ? textDark:const Color.fromARGB(255, 46, 44, 44),
                       fontWeight: FontWeight.w300)),
             )
           ],
