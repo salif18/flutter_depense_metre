@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:gestionary/providers/statisticprovider.dart';
+import 'package:gestionary/providers/statistic_provider.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:gestionary/screens/statistiques/graphiques/bar_chart.dart';
 import 'package:gestionary/screens/statistiques/graphiques/line_chartwidget.dart';
 import 'package:gestionary/screens/statistiques/graphiques/pie_chartwidget.dart';
@@ -26,7 +29,7 @@ class _MyStatsState extends State<MyStats> {
     fetchData();
   }
 
-  fetchData() async {
+ Future<void> fetchData() async {
     setState(() {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         Provider.of<StatisticsProvider>(context, listen: false)
@@ -58,20 +61,27 @@ class _MyStatsState extends State<MyStats> {
   @override
   void initState() {
     super.initState();
-    fetchData();
+    //  Timer.periodic( const Duration(seconds:1 ), (Timer timer) { 
+      fetchData();
+    //  });
+    
   }
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    Color? backgroundDark = provider.colorBackground;
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Container(
-      color: Colors.grey[100],
+      color:isDark ? backgroundDark : Colors.white,
       child: SafeArea(
         child: RefreshIndicator(
           backgroundColor: const Color.fromARGB(255, 34, 12, 49),
           color: Colors.grey[100],
           onRefresh: _refresh,
           child: Scaffold(
-            backgroundColor: Colors.grey[100],
+            backgroundColor: isDark ? backgroundDark:Colors.white,
             body: SingleChildScrollView(
               child: Column(
                 children: [
@@ -85,6 +95,7 @@ class _MyStatsState extends State<MyStats> {
                         Text(
                           "Mensuelle",
                           style: GoogleFonts.roboto(
+                            color:isDark ? textDark : null,
                               fontSize: 24, fontWeight: FontWeight.w500),
                         )
                       ],
@@ -101,6 +112,7 @@ class _MyStatsState extends State<MyStats> {
                         children: [
                           Text("Hebdomadaire",
                               style: GoogleFonts.roboto(
+                                color:isDark ? textDark : null,
                                   fontSize: 23, fontWeight: FontWeight.w500)),
                         ],
                       )),
@@ -110,8 +122,9 @@ class _MyStatsState extends State<MyStats> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text("Etat du budget",
+                          Text("Etude detaillée du budget",
                               style: GoogleFonts.roboto(
+                                color:isDark ? textDark : null,
                                   fontSize: 23, fontWeight: FontWeight.w500)),
                         ],
                       )),
@@ -121,8 +134,9 @@ class _MyStatsState extends State<MyStats> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text("Statistiques annuel",
+                          Text("Statistics annuel",
                               style: GoogleFonts.roboto(
+                                color:isDark ? textDark : null,
                                   fontSize: 23, fontWeight: FontWeight.w500)),
                         ],
                       )),

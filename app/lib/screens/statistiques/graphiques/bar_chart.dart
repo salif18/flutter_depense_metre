@@ -4,7 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:gestionary/models/model_chart_data.dart';
 import 'package:gestionary/models/week_stats.dart';
-import 'package:gestionary/providers/statisticprovider.dart';
+import 'package:gestionary/providers/statistic_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -120,32 +120,8 @@ class _BarChartWidgetState extends State<BarChartWidget> {
         default:
           weekDay = "";
       }
-      String montant = "0.0";
-       switch (group.x) {
-              case 0:
-                montant = '${modelBarData[0].y }';
-                break;
-              case 1:
-                montant = '${modelBarData[1].y }';
-                break;
-              case 2:
-                montant = '${modelBarData[2].y}';
-                break;
-              case 3:
-               montant = '${modelBarData[3].y}';
-                break;
-              case 4:
-                montant = '${modelBarData[4].y}';
-                break;
-              case 5:
-                montant = '${modelBarData[5].y }';
-                break;
-              case 6:
-                montant = '${modelBarData[6].y}';
-                break;
-              default:
-                throw Error();
-            }
+      String montant;
+      montant = "${modelBarData[group.x].y}";
       return BarTooltipItem(
           "$weekDay\n",
           const TextStyle(

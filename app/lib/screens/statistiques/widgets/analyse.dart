@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestionary/models/raportcurrentbudget.dart';
 import 'package:gestionary/models/mostexpenses.dart';
-import 'package:gestionary/providers/statisticprovider.dart';
+import 'package:gestionary/providers/statistic_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:percent_indicator/percent_indicator.dart';

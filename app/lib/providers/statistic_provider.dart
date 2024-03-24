@@ -9,7 +9,7 @@ import 'package:gestionary/models/mostexpenses.dart';
 import 'package:gestionary/models/month_stats.dart';
 import 'package:gestionary/models/week_stats.dart';
 import 'package:gestionary/models/year_stats.dart';
-import 'package:gestionary/providers/authprovider.dart';
+import 'package:gestionary/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 class StatisticsProvider extends ChangeNotifier {

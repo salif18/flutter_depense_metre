@@ -4,7 +4,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_auth.dart';
-import 'package:gestionary/providers/authprovider.dart';
+import 'package:gestionary/providers/auth_provider.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:gestionary/screens/recuperation/reset.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -70,10 +71,15 @@ class _UpdatePasswordState extends State<UpdatePassword> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    Color? backgroundDark = provider.colorBackground;
+    Color? containerDark = provider.containerBackg;
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: isDark ? backgroundDark :Colors.grey[200],
       appBar: AppBar(
-        backgroundColor: Colors.grey[200],
+        backgroundColor: isDark? backgroundDark:Colors.grey[200],
         elevation: 0,
         toolbarHeight: 80,
         automaticallyImplyLeading: false,
@@ -91,14 +97,14 @@ class _UpdatePasswordState extends State<UpdatePassword> {
           child: Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: isDark ? containerDark :Colors.white,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Form(
               key: _formKey,
               child: Column(
                 children: [
-                  _text(context),
+                  _text(context,isDark ,textDark),
                   _textFieldPassword(context),
                   _textFieldNewPassword(context),
                   _textFieldConfirmPassword(context),
@@ -114,7 +120,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
     );
   }
 
-  Widget _text(BuildContext context) {
+  Widget _text(BuildContext context,isDark ,textDark) {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Column(
@@ -124,7 +130,9 @@ class _UpdatePasswordState extends State<UpdatePassword> {
             child: Text(
               "Changer de mot de passe",
               style:
-                  GoogleFonts.roboto(fontSize: 23, fontWeight: FontWeight.w600),
+                  GoogleFonts.roboto(
+                    color:isDark ? textDark : null,
+                    fontSize: 23, fontWeight: FontWeight.w600),
             ),
           ),
           Padding(
@@ -132,7 +140,9 @@ class _UpdatePasswordState extends State<UpdatePassword> {
             child: Text(
               "Votre mot de passe doit contenir au moins 6 caractères",
               style:
-                  GoogleFonts.roboto(fontSize: 16, fontWeight: FontWeight.w400),
+                  GoogleFonts.roboto(
+                    color:isDark ? textDark : null,
+                    fontSize: 16, fontWeight: FontWeight.w400),
             ),
           )
         ],

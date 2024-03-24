@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:gestionary/providers/statisticprovider.dart';
+import 'package:gestionary/providers/statistic_provider.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:gestionary/routes/splash_screen.dart';
 import 'package:gestionary/screens/auth/login.dart';
-import 'package:gestionary/providers/authprovider.dart';
-import 'package:gestionary/providers/userprovider.dart';
+import 'package:gestionary/providers/auth_provider.dart';
+import 'package:gestionary/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -13,6 +14,7 @@ void main() {
         ChangeNotifierProvider(create: (context) => AuthProvider()),
         ChangeNotifierProvider(create: (context) => UserInfosProvider()),
         ChangeNotifierProvider(create: (context) => StatisticsProvider()),
+        ChangeNotifierProvider(create: (context) => ThemeProvider())
       ],
       child: const MyApp(),
     ),

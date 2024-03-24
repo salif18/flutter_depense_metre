@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:gestionary/screens/settings/widgets/appbar.dart';
 import 'package:gestionary/screens/update/updatepassword.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -13,8 +15,12 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ThemeProvider>(context);
+    bool isDark = provider.isDark;
+    Color? backgroundDark = provider.colorBackground;
+    Color? containerDark = provider.containerBackg;
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: isDark ? backgroundDark : Colors.grey[200],
       appBar: const SettingsAppBar(),
       body: Container(
         padding: const EdgeInsets.all(20),
@@ -23,24 +29,24 @@ class _SettingsState extends State<Settings> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: isDark ? containerDark : Colors.white,
                     borderRadius: BorderRadius.circular(20)),
                 child: Column(
                   children: [
-                    _notificationReglage(context),
+                    _notificationReglage(context, provider),
                     Container(height: 1, width: 320, color: Colors.grey[200]),
-                    _themeReglage(context),
+                    _themeReglage(context, provider),
                   ],
                 ),
               ),
               const SizedBox(height: 20),
               Container(
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: isDark ? containerDark : Colors.white,
                     borderRadius: BorderRadius.circular(20)),
                 child: Column(
                   children: [
-                    _changerMotdePass(context),
+                    _changerMotdePass(context, provider),
                     Container(height: 1, width: 320, color: Colors.grey[200]),
                   ],
                 ),
@@ -52,7 +58,8 @@ class _SettingsState extends State<Settings> {
     );
   }
 
-  Widget _notificationReglage(BuildContext context) {
+  Widget _notificationReglage(BuildContext context, ThemeProvider provider) {
+    bool isDark = provider.isDark;
     return Container(
       padding: const EdgeInsets.all(20),
       width: MediaQuery.of(context).size.width,
@@ -68,11 +75,14 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.notifications, size: 30),
+                  Icon(Icons.notifications,
+                      color: isDark ? Colors.white : null, size: 30),
                   const SizedBox(width: 10),
                   Text("Notification",
                       style: GoogleFonts.aBeeZee(
-                          fontSize: 20, fontWeight: FontWeight.w300))
+                          color: isDark ? Colors.white : null,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w300))
                 ],
               ),
             ],
@@ -83,7 +93,8 @@ class _SettingsState extends State<Settings> {
     );
   }
 
-  Widget _themeReglage(BuildContext context) {
+  Widget _themeReglage(BuildContext context, provider) {
+    bool isDark = provider.isDark;
     return Container(
       padding: const EdgeInsets.all(20),
       width: MediaQuery.of(context).size.width,
@@ -99,22 +110,35 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.sunny, size: 30),
+                  Icon(isDark ? Icons.mode_night : Icons.sunny,
+                      size: 30, color: Colors.amber),
                   const SizedBox(width: 10),
-                  Text("Theme",
+                  Text(isDark ? "Sombre" : "Clair",
                       style: GoogleFonts.aBeeZee(
-                          fontSize: 20, fontWeight: FontWeight.w300))
+                          color: isDark ? Colors.white : null,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w300))
                 ],
               ),
             ],
           ),
-          const Expanded(child: Switch(value: true, onChanged: null))
+          Expanded(
+              child: Switch(
+            value: isDark,
+            onChanged: (value) {
+              provider.changeTheme();
+            },
+            activeColor: const Color.fromARGB(255, 183, 1, 255),
+            activeTrackColor: Colors.grey[800],
+          ))
         ],
       ),
     );
   }
 
-  Widget _changerMotdePass(BuildContext context) {
+  Widget _changerMotdePass(BuildContext context, ThemeProvider provider) {
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Container(
       padding: const EdgeInsets.all(20),
       width: MediaQuery.of(context).size.width,
@@ -132,17 +156,21 @@ class _SettingsState extends State<Settings> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.sync_lock_rounded, size: 30),
+                    Icon(Icons.sync_lock_rounded,
+                        color: isDark ? textDark : null, size: 30),
                     const SizedBox(width: 10),
                     Text("Changer mot de passe",
                         style: GoogleFonts.aBeeZee(
-                            fontSize: 20, fontWeight: FontWeight.w300))
+                            color: isDark ? textDark : null,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w300))
                   ],
                 ),
               ],
             ),
-            const Expanded(
-                child: Icon(Icons.arrow_forward_ios_rounded, size: 24))
+            Expanded(
+                child: Icon(Icons.arrow_forward_ios_rounded,
+                    color: isDark ? textDark : null, size: 24))
           ],
         ),
       ),
@@ -154,11 +182,15 @@ class _SettingsState extends State<Settings> {
         isScrollControlled: true,
         context: context,
         builder: (BuildContext context) {
+          ThemeProvider provider = Provider.of<ThemeProvider>(context);
+          bool isDark = provider.isDark;
+
           return Container(
               height: MediaQuery.of(context).size.height * 0.9,
               padding: const EdgeInsets.all(10),
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                color: isDark ? const Color.fromARGB(237, 0, 0, 0) : null,
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20)),
               ),

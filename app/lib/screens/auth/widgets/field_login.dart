@@ -8,8 +8,8 @@ import 'package:gestionary/api/api_auth.dart';
 import 'package:gestionary/models/indicatifs.dart';
 import 'package:gestionary/screens/auth/registre.dart';
 import 'package:gestionary/models/user.dart';
-import 'package:gestionary/providers/authprovider.dart';
-import 'package:gestionary/providers/userprovider.dart';
+import 'package:gestionary/providers/auth_provider.dart';
+import 'package:gestionary/providers/user_provider.dart';
 import 'package:gestionary/routes/routes.dart';
 import 'package:gestionary/screens/recuperation/reset.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,9 +43,12 @@ class _MyFieldFormsState extends State<MyFieldForms> {
   Future<void> sendToServer(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
       var data = {
-        "contacts": contacts.text.contains("@")
-            ? contacts.text.trim()
-            : "$selectedCountryIndicatif${contacts.text.trim()}",
+        "contacts": 
+        // contacts.text.contains("@")
+            // ? contacts.text.trim()
+            // : 
+            // "$selectedCountryIndicatif$
+            contacts.text.trim(),
         "password": password.text
       };
       final providerAuth = Provider.of<AuthProvider>(context, listen: false);
@@ -95,7 +98,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               _text(context),
-              _countryDropdown(context),
+              // _countryDropdown(context),
               _formFieldContact(context),
               _formFieldPassword(context),
               _forgetPassword(context),
@@ -135,7 +138,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
         decoration: InputDecoration(
           fillColor: const Color.fromARGB(255, 250, 250, 253),
           filled: true,
-          hintText: "(+123) Numéro ou e-mail",
+          hintText: "Numéro ou e-mail",
           hintStyle: GoogleFonts.roboto(
             fontSize: 20,
             fontWeight: FontWeight.w400,

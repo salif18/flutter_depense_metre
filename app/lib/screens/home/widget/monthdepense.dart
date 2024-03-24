@@ -7,7 +7,8 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_depense.dart';
 import 'package:gestionary/models/expenses.dart';
-import 'package:gestionary/providers/authprovider.dart';
+import 'package:gestionary/providers/auth_provider.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:gestionary/screens/save_expense/saveexpense.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -65,8 +66,12 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    Color? backgroundDark = provider.colorBackground;
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Container(
-        color: Colors.white,
+        color: isDark ? backgroundDark : Colors.white,
         child: Column(
           children: [
             Row(
@@ -84,6 +89,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                           Text(
                             "$month",
                             style: GoogleFonts.roboto(
+                              color:isDark ? textDark : null,
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
                         ],
@@ -98,12 +104,14 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                           Text(
                             "Total",
                             style: GoogleFonts.roboto(
+                              color:isDark ? textDark : null,
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(width: 5),
                           Text(
                             "$totalMonth",
                             style: GoogleFonts.roboto(
+                              color:isDark ? textDark : null,
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(width: 10),
@@ -133,7 +141,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                               style: GoogleFonts.roboto(
                                   fontSize: 19,
                                   fontWeight: FontWeight.w300,
-                                  color: Colors.black),
+                                  color:isDark ? textDark : null),
                             ),
                             const SizedBox(height: 20),
                             ElevatedButton(
@@ -164,6 +172,9 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
   }
 
   Widget _expenses(BuildContext context, expense, category) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Container(
@@ -180,6 +191,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                 ),
                 Text(category?["name_categories"] ?? "",
                     style: GoogleFonts.roboto(
+                      color:isDark ? textDark :null,
                         fontSize: 20, fontWeight: FontWeight.w400)),
               ],
             ),
@@ -187,6 +199,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
               children: [
                 Text("${expense.amount}",
                     style: GoogleFonts.roboto(
+                      color:isDark ? textDark :null,
                         fontSize: 20, fontWeight: FontWeight.w600)),
                 const SizedBox(
                   width: 10,

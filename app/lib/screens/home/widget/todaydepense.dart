@@ -6,7 +6,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_depense.dart';
 import 'package:gestionary/models/expenses.dart';
-import 'package:gestionary/providers/authprovider.dart';
+import 'package:gestionary/providers/auth_provider.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:gestionary/screens/save_expense/saveexpense.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -58,8 +59,12 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    Color? backgroundDark = provider.colorBackground;
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Container(
-        color: Colors.white,
+        color: isDark ? backgroundDark : Colors.white,
         child: Column(
           children: [
             Row(
@@ -77,7 +82,9 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                           Text(
                             "$day".toLowerCase(),
                             style: GoogleFonts.roboto(
-                                fontSize: 20, fontWeight: FontWeight.w600),
+                                color: isDark ? textDark : null,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600),
                           ),
                         ],
                       )),
@@ -91,7 +98,9 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                           Text(
                             "Total",
                             style: GoogleFonts.roboto(
-                                fontSize: 20, fontWeight: FontWeight.w600),
+                                color: isDark ? textDark : null,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(
                             width: 5,
@@ -99,7 +108,9 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                           Text(
                             "$totalDay",
                             style: GoogleFonts.roboto(
-                                fontSize: 20, fontWeight: FontWeight.w600),
+                                color: isDark ? textDark : null,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(width: 10),
                           const Icon(Icons.monetization_on_rounded,
@@ -128,7 +139,7 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                               style: GoogleFonts.roboto(
                                   fontSize: 19,
                                   fontWeight: FontWeight.w300,
-                                  color: Colors.black),
+                                  color: isDark ? textDark : Colors.black),
                             ),
                             const SizedBox(height: 20),
                             ElevatedButton(
@@ -155,9 +166,10 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                         child: Text(
                       "aucunes donnees",
                       style: GoogleFonts.roboto(
-                          fontSize: 19,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.black),
+                        fontSize: 19,
+                        fontWeight: FontWeight.w300,
+                        color: isDark ? textDark : null,
+                      ),
                     ));
                   }
                 }),
@@ -166,6 +178,9 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
   }
 
   Widget _expenses(BuildContext context, expense, category) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Container(
@@ -182,14 +197,18 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                 ),
                 Text(category?["name_categories"] ?? "",
                     style: GoogleFonts.roboto(
-                        fontSize: 20, fontWeight: FontWeight.w400)),
+                        color: isDark ? textDark : null,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400)),
               ],
             ),
             Row(
               children: [
                 Text("${expense.amount}",
                     style: GoogleFonts.roboto(
-                        fontSize: 20, fontWeight: FontWeight.w600)),
+                        color: isDark ? textDark : null,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600)),
                 const SizedBox(
                   width: 10,
                 ),

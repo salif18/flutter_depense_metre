@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:gestionary/screens/home/home.dart';
 import 'package:gestionary/screens/Profile/profil.dart';
 import 'package:gestionary/screens/save_expense/save_categorie.dart';
@@ -7,6 +8,7 @@ import 'package:gestionary/screens/statistiques/statistiques.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:provider/provider.dart';
 
 class MainRoutes extends StatefulWidget {
   const MainRoutes({super.key});
@@ -34,8 +36,11 @@ class _MainRoutesState extends State<MainRoutes> {
 
   //bottomNavigationBar
   Widget _buildBottomNavigationBar() {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    Color? backgroundDark = provider.colorBackground;
+    bool isDark = provider.isDark;
     return Container(
-      color: Colors.grey[200],
+      color: isDark ? backgroundDark : Colors.grey[200],
       padding: const EdgeInsets.all(10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -120,8 +125,10 @@ class _MainRoutesState extends State<MainRoutes> {
         builder: (BuildContext context) {
           return AlertDialog(
             backgroundColor: Colors.grey[200],
-            title: Center(child: Text("Actions",
-            style: GoogleFonts.aBeeZee(fontSize:20,fontWeight:FontWeight.w600))),
+            title: Center(
+                child: Text("Actions",
+                    style: GoogleFonts.aBeeZee(
+                        fontSize: 20, fontWeight: FontWeight.w600))),
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             content: Column(
@@ -135,14 +142,16 @@ class _MainRoutesState extends State<MainRoutes> {
                           builder: (BuildContext context) {
                             return AlertDialog(
                               backgroundColor: Colors.grey[200],
-                              content:const CreateCategories(),
+                              content: const CreateCategories(),
                             );
                           },
                         );
                       },
                       child: Text("Créer vos catégories",
                           style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500, color:Colors.blue))),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.blue))),
                   const Divider(
                     height: 2,
                   ),
@@ -152,7 +161,9 @@ class _MainRoutesState extends State<MainRoutes> {
                       },
                       child: Text("Enregistrer vos dépenses",
                           style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500, color:Colors.blue)))
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.blue)))
                 ]),
           );
         });

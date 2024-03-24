@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestionary/models/user.dart';
-import 'package:gestionary/providers/userprovider.dart';
+import 'package:gestionary/providers/user_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 

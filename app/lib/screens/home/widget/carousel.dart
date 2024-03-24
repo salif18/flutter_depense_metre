@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:gestionary/providers/statisticprovider.dart';
+import 'package:gestionary/providers/statistic_provider.dart';
 import 'package:gestionary/screens/statistiques/graphiques/statsexpensebarchart.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';

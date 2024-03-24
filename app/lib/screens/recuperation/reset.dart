@@ -4,8 +4,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_auth.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:gestionary/screens/recuperation/validation.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class ResetToken extends StatefulWidget {
   const ResetToken({super.key});
@@ -59,14 +61,18 @@ class _ResetTokenState extends State<ResetToken> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ThemeProvider>(context);
+    bool isDark = provider.isDark;
+    Color? backgroundDark = provider.colorBackground;
+    Color? textDark = provider.colorText;
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: isDark ? backgroundDark: Colors.grey[200],
       appBar: AppBar(
         toolbarHeight: 80,
-        backgroundColor: Colors.grey[200],
+        backgroundColor: isDark ? backgroundDark:Colors.grey[200],
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 24)),
+            icon:Icon(Icons.arrow_back_ios_new_rounded,color:isDark ? textDark :null, size: 24)),
       ),
       body: Container(
         padding: const EdgeInsets.all(10),
@@ -77,7 +83,7 @@ class _ResetTokenState extends State<ResetToken> {
               key: _formKey,
               child: Column(
                 children: [
-                  _text(context),
+                  _text(context,isDark, textDark),
                   _formNumberField(context),
                   _formEmailField(context),
                   const SizedBox(height: 100),
@@ -91,7 +97,7 @@ class _ResetTokenState extends State<ResetToken> {
     );
   }
 
-  Widget _text(BuildContext context) {
+  Widget _text(BuildContext context, isDark , textDark) {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Column(
@@ -100,6 +106,7 @@ class _ResetTokenState extends State<ResetToken> {
             padding: const EdgeInsets.all(8.0),
             child: Text("Réinitialiser le mot de passe",
                 style: GoogleFonts.roboto(
+                  color:isDark ? textDark :null,
                     fontSize: 23, fontWeight: FontWeight.w600)),
           ),
           Padding(
@@ -107,6 +114,7 @@ class _ResetTokenState extends State<ResetToken> {
             child: Text(
                 "Veuillez entrer les bonnes informations pour pouvoir nous aider à réinitialiser votre mot de passe",
                 style: GoogleFonts.roboto(
+                  color:isDark ? textDark :null,
                     fontSize: 16, fontWeight: FontWeight.w300)),
           ),
         ],
@@ -130,7 +138,7 @@ class _ResetTokenState extends State<ResetToken> {
           prefixIcon: const Icon(Icons.phone_android_rounded, size: 24),
           filled: true,
           fillColor: Colors.grey[100],
-          hintText: "Numéro avec (+ indicatif)",
+          hintText: "Numéro",
           hintStyle:
               GoogleFonts.aBeeZee(fontSize: 16, fontWeight: FontWeight.w500),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),

@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class BonusDay extends StatelessWidget {
   const BonusDay({super.key});
 
   @override
   Widget build(BuildContext context) {
+     ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    Color? backgroundDark = provider.colorBackground;
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Row(children: [
@@ -15,7 +21,7 @@ class BonusDay extends StatelessWidget {
               style: GoogleFonts.roboto(
                   fontSize: 24,
                   fontWeight: FontWeight.w500,
-                  color: Colors.black)),
+                  color:isDark ? textDark : null,)),
         ),
         const SizedBox(width: 20),
         Padding(

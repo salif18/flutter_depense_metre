@@ -7,8 +7,8 @@ import 'package:gestionary/api/api_auth.dart';
 import 'package:gestionary/models/indicatifs.dart';
 import 'package:gestionary/screens/auth/login.dart';
 import 'package:gestionary/models/user.dart';
-import 'package:gestionary/providers/authprovider.dart';
-import 'package:gestionary/providers/userprovider.dart';
+import 'package:gestionary/providers/auth_provider.dart';
+import 'package:gestionary/providers/user_provider.dart';
 import 'package:gestionary/routes/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -45,7 +45,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
     if (_formKey.currentState!.validate()) {
       var data = {
         "name": name.text,
-        "phone_number": "$selectedCountryIndicatif${numero.text.trim()}",
+        "phone_number": numero.text.trim(),
         "email": email.text,
         "password": password.text
       };
@@ -97,7 +97,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
               children: [
                 _text(context),
                 _formPseudoField(context),
-                _countryDropdown(context),
+                // _countryDropdown(context),
                 _formNumberField(context),
                 _formEmailField(context),
                 _formPasswordField(context),

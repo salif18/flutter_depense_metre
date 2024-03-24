@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestionary/models/year_stats.dart';
-import 'package:gestionary/providers/statisticprovider.dart';
+import 'package:gestionary/providers/statistic_provider.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +16,9 @@ class _MyYearBalanceState extends State<MyYearBalance> {
   
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Padding(
       padding: EdgeInsets.only(
         top: MediaQuery.of(context).padding.top * 1.8, left: 20),
@@ -51,10 +55,11 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                                   Text(
                                     "Balance de ${statsYear?.year ?? 0}",
                                     style: GoogleFonts.roboto(
+                                      
                                       fontSize: 23,
                                       fontWeight: FontWeight.w500,
                                       color:
-                                          const Color.fromARGB(255, 161, 161, 161),
+                                          isDark ? textDark:const Color.fromARGB(255, 161, 161, 161),
                                     ),
                                   ),
                                 ],
@@ -84,7 +89,7 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                                   style: GoogleFonts.roboto(
                                     fontSize: 30,
                                     fontWeight: FontWeight.w500,
-                                    color: const Color.fromARGB(255, 18, 1, 65),
+                                    color: isDark ? Colors.red :const Color.fromARGB(255, 18, 1, 65),
                                   ),
                                 );
                           } else {

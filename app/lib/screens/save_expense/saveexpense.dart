@@ -7,7 +7,7 @@ import 'package:gestionary/api/api_budget.dart';
 import 'package:gestionary/api/api_categories.dart';
 import 'package:gestionary/api/api_depense.dart';
 import 'package:gestionary/models/categories.dart';
-import 'package:gestionary/providers/authprovider.dart';
+import 'package:gestionary/providers/auth_provider.dart';
 import 'package:gestionary/screens/budgets/addbudgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';

@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_budget.dart';
 import 'package:gestionary/models/budget.dart';
-import 'package:gestionary/providers/authprovider.dart';
+import 'package:gestionary/providers/auth_provider.dart';
 import 'package:gestionary/screens/budgets/addbudgets.dart';
 import 'package:gestionary/screens/budgets/details/singlebudget.dart';
 import 'package:google_fonts/google_fonts.dart';

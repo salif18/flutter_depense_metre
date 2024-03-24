@@ -4,7 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:gestionary/models/all_year_stats.dart';
 import 'package:gestionary/models/model_chart_data.dart';
-import 'package:gestionary/providers/statisticprovider.dart';
+import 'package:gestionary/providers/statistic_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -32,7 +32,7 @@ class LineChartWidget extends StatelessWidget {
               color: const Color(0xFF292D4E),
               borderRadius: BorderRadius.circular(20)),
           child: LineChart(
-              duration: const Duration(microseconds: 270),
+              duration: const Duration(milliseconds: 750),
               curve: Curves.linear,
               LineChartData(
                   minX: 0,
@@ -41,7 +41,7 @@ class LineChartWidget extends StatelessWidget {
                   maxY: 400000,
                   borderData: FlBorderData(show: false),
                   gridData: const FlGridData(show: true),
-                  lineTouchData: myLineTouchData(modelLineData),
+                  // lineTouchData: myLineTouchData(modelLineData),
                   titlesData: myLineTitlesData(),
                   lineBarsData: [
                     LineChartBarData(
@@ -54,7 +54,7 @@ class LineChartWidget extends StatelessWidget {
                       gradient: const LinearGradient(
                           colors: [Colors.redAccent, Colors.orangeAccent]),
                       dotData: const FlDotData(show: true),
-                      barWidth: 5,
+                      barWidth: 3,
                       belowBarData: BarAreaData(
                           show: true,
                           gradient: LinearGradient(colors: [
@@ -73,6 +73,7 @@ class LineChartWidget extends StatelessWidget {
 
   LineTouchData myLineTouchData(List<ModelLineData> modelLineData) {
     return LineTouchData(
+      enabled: true,
       touchTooltipData: LineTouchTooltipData(
         tooltipBgColor: Colors.transparent,
         tooltipPadding: const EdgeInsets.all(5),
@@ -118,11 +119,12 @@ class LineChartWidget extends StatelessWidget {
                 break;
               default:
                 month = "";
+                break;
             }
             String montant;
-            // int index = touchedSpot.x.toInt().clamp(1, modelLineData.length -1);
+            int index = touchedSpot.x.toInt().clamp(1, modelLineData.length -1);
             
-            switch (touchedSpot.x.toInt().clamp(1, modelLineData.length-1)) {
+            switch (index) {
               case 1:
                 montant = "${modelLineData[1].y}";
                 break;
@@ -161,6 +163,7 @@ class LineChartWidget extends StatelessWidget {
                 break;
               default:
                 montant = "";
+                break;
             }
 
             return LineTooltipItem(

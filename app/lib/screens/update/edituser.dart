@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_auth.dart';
 import 'package:gestionary/models/indicatifs.dart';
 import 'package:gestionary/models/user.dart';
-import 'package:gestionary/providers/authprovider.dart';
-import 'package:gestionary/providers/userprovider.dart';
+import 'package:gestionary/providers/auth_provider.dart';
+import 'package:gestionary/providers/theme_provider.dart';
+import 'package:gestionary/providers/user_provider.dart';
 import 'package:gestionary/screens/update/widgets/appbar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -72,8 +73,13 @@ class _EditUserState extends State<EditUser> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    Color? backgroundDark = provider.colorBackground;
+    Color? containerDark = provider.containerBackg;
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: isDark ? backgroundDark :Colors.grey[200],
       appBar: const UpdateAppBar(),
       body: Container(
         padding: const EdgeInsets.all(20),
@@ -81,11 +87,12 @@ class _EditUserState extends State<EditUser> {
           child: Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(20)),
+                color: isDark ? containerDark:Colors.white, 
+                borderRadius: BorderRadius.circular(20)),
             child: Column(
               children: [
-                _text(context),
-                _textFieldName(context),
+                _text(context ,isDark , textDark),
+                _textFieldName(context,),
                 _textFieldNumber(context),
                 _textFieldMail(context),
                 const SizedBox(height: 100),
@@ -98,7 +105,7 @@ class _EditUserState extends State<EditUser> {
     );
   }
 
-  Widget _text(BuildContext context) {
+  Widget _text(BuildContext context,isDark , textDark) {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Column(
@@ -109,7 +116,9 @@ class _EditUserState extends State<EditUser> {
             child: Text(
               "Changer le profil ",
               style:
-                  GoogleFonts.roboto(fontSize: 23, fontWeight: FontWeight.w600),
+                  GoogleFonts.roboto(
+                    color:isDark ? textDark : null,
+                    fontSize: 23, fontWeight: FontWeight.w600),
             ),
           ),
           Padding(
@@ -117,7 +126,9 @@ class _EditUserState extends State<EditUser> {
             child: Text(
               "Vous pouvez apporter des modifications à votre profil",
               style:
-                  GoogleFonts.roboto(fontSize: 18, fontWeight: FontWeight.w400),
+                  GoogleFonts.roboto(
+                    color:isDark ? textDark : null,
+                    fontSize: 18, fontWeight: FontWeight.w400),
             ),
           )
         ],
@@ -204,7 +215,7 @@ class _EditUserState extends State<EditUser> {
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.grey[100],
-          hintText: "Numero avec ( indicatif )",
+          hintText: "Numero",
           hintStyle:
               GoogleFonts.aBeeZee(fontSize: 18, fontWeight: FontWeight.w400),
           prefixIcon: const Icon(Icons.phone_android, size: 33),

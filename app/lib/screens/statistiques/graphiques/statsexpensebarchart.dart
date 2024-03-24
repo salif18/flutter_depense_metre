@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:gestionary/models/week_stats.dart';
-import 'package:gestionary/providers/statisticprovider.dart';
+import 'package:gestionary/providers/statistic_provider.dart';
 import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
@@ -129,7 +129,6 @@ class BarChartExpenseState extends State<BarChartExpense> {
       barTouchData: BarTouchData(
         touchTooltipData: BarTouchTooltipData(
            tooltipBgColor: Colors.transparent,
-          tooltipHorizontalAlignment: FLHorizontalAlignment.right,
           tooltipMargin: -10,
           getTooltipItem: (group, groupIndex, rod, rodIndex) {
             String weekDay;
@@ -158,32 +157,8 @@ class BarChartExpenseState extends State<BarChartExpense> {
               default:
                 throw Error();
             }
-             String montant;
-            switch (group.x) {
-              case 0:
-                montant = '${receivedData?[0].total ?? 0}';
-                break;
-              case 1:
-                montant = '${receivedData?[1].total ?? 0}';
-                break;
-              case 2:
-                montant = '${receivedData?[2].total ?? 0}';
-                break;
-              case 3:
-               montant = '${receivedData?[3].total ?? 0}';
-                break;
-              case 4:
-                montant = '${receivedData?[4].total ?? 0}';
-                break;
-              case 5:
-                montant = '${receivedData?[5].total ?? 0}';
-                break;
-              case 6:
-                montant = '${receivedData?[6].total ?? 0}';
-                break;
-              default:
-                throw Error();
-            }
+            String montant;
+            montant = "${receivedData?[group.x].total ?? 0.0}";
             return BarTooltipItem(
               '$weekDay\n',
               const TextStyle(

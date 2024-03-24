@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestionary/models/user.dart';
-import 'package:gestionary/providers/userprovider.dart';
+import 'package:gestionary/providers/theme_provider.dart';
+import 'package:gestionary/providers/user_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -9,6 +10,9 @@ class MyProfilPictureInfos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Consumer<UserInfosProvider>(
       builder: (context, provider, child) {
        return FutureBuilder<ModelUser?>(
@@ -44,10 +48,12 @@ class MyProfilPictureInfos extends StatelessWidget {
                           children: [
                             Text(profil?.name ?? "",
                                 style: GoogleFonts.aBeeZee(
+                                  color: isDark ? textDark : null,
                                     fontSize: 24, fontWeight: FontWeight.w600)),
                             Text(profil?.email ?? "",
                                 style: GoogleFonts.roboto(
-                                    fontSize: 19, color: Colors.grey))
+                                   color: isDark ? textDark :Colors.grey ,
+                                    fontSize: 19))
                           ],
                         ),
                       )

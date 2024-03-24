@@ -4,8 +4,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_auth.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:provider/provider.dart';
 
 class ValidationPassword extends StatefulWidget {
   const ValidationPassword({super.key});
@@ -66,15 +68,20 @@ class _ValidationPasswordState extends State<ValidationPassword> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ThemeProvider>(context);
+    bool isDark = provider.isDark;
+    Color? backgroundDark = provider.colorBackground;
+    Color? textDark = provider.colorText;
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: isDark ? backgroundDark : Colors.grey[200],
       appBar: AppBar(
         toolbarHeight: 80,
         elevation: 0,
-        backgroundColor: Colors.grey[200],
+        backgroundColor: isDark ? backgroundDark : Colors.grey[200],
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 24)),
+            icon: Icon(Icons.arrow_back_ios_new_rounded,
+                color: isDark ? textDark : null, size: 24)),
       ),
       body: Container(
         padding: const EdgeInsets.all(10),
@@ -83,10 +90,10 @@ class _ValidationPasswordState extends State<ValidationPassword> {
             key: _formKey,
             child: Column(
               children: [
-                _text(context),
+                _text(context, isDark, textDark),
                 _formNewPassword(context),
                 _formConfirmPassword(context),
-                _secondText(context),
+                _secondText(context, isDark, textDark),
                 _codes4Champs(context),
                 const SizedBox(height: 100),
                 _sendButton(context)
@@ -98,7 +105,7 @@ class _ValidationPasswordState extends State<ValidationPassword> {
     );
   }
 
-  Widget _text(BuildContext context) {
+  Widget _text(BuildContext context, isDark, textDark) {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Column(
@@ -108,14 +115,18 @@ class _ValidationPasswordState extends State<ValidationPassword> {
             padding: const EdgeInsets.all(8.0),
             child: Text("Validation le mot de passe",
                 style: GoogleFonts.roboto(
-                    fontSize: 23, fontWeight: FontWeight.w600)),
+                    color: isDark ? textDark : null,
+                    fontSize: 23,
+                    fontWeight: FontWeight.w600)),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
                 "Veuillez entrer les bonnes informations pour pouvoir valider le nouveau mot de passe",
                 style: GoogleFonts.roboto(
-                    fontSize: 16, fontWeight: FontWeight.w300)),
+                    color: isDark ? textDark : null,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w300)),
           ),
         ],
       ),
@@ -172,14 +183,16 @@ class _ValidationPasswordState extends State<ValidationPassword> {
     );
   }
 
-  Widget _secondText(BuildContext context) {
+  Widget _secondText(BuildContext context, isDark, textDark) {
     return Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
             padding: const EdgeInsets.all(8.0),
             child: Text("Entrez les 4 chiffres envoyés sur votre e-mail",
                 style: GoogleFonts.roboto(
-                    fontSize: 18, fontWeight: FontWeight.w400))));
+                    color: isDark ? textDark : null,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400))));
   }
 
   Widget _codes4Champs(BuildContext context) {

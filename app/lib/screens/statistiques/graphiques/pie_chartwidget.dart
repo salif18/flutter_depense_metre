@@ -4,7 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:gestionary/models/model_chart_data.dart';
 import 'package:gestionary/models/raportcurrentbudget.dart';
-import 'package:gestionary/providers/statisticprovider.dart';
+import 'package:gestionary/providers/statistic_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -32,15 +32,17 @@ class _PieChatWidgetState extends State<PieChartWidget> {
                 // conversion au format modelPiedata
                 List<ModelPieData> pieData = [
                   ModelPieData(
+                    value: item?.budgetAmount!.toDouble() ?? 0.0, 
+                    title: "Budget", 
+                    color: const Color.fromARGB(255, 215, 35, 247).withOpacity(.7)),
+                  ModelPieData(
                       value: item?.epargnes!.toDouble() ?? 0.0,
                       title: "Epargnes",
-                      color: Colors.purple),
+                      color: const Color.fromARGB(255, 33, 150, 243).withOpacity(.7)),
                   ModelPieData(
                       value: item?.budgetTotal!.toDouble() ?? 0.0,
                       title: "Dépenses",
-                      color: Colors.pinkAccent.withOpacity(0.8)
-                      
-                      )
+                      color: const Color.fromARGB(255, 255, 171, 64).withOpacity(.7))
                 ];
                 if(pieData.isEmpty){
                      return Center(
@@ -59,9 +61,9 @@ class _PieChatWidgetState extends State<PieChartWidget> {
                       child: PieChart(
                         swapAnimationDuration: const Duration(
                             milliseconds:
-                                800), // Durée de l'animation de basculement
+                                750), // Durée de l'animation de basculement
                         swapAnimationCurve:
-                            Curves.linear, // Courbe d'animation de basculement
+                            Curves.easeInOutQuint, // Courbe d'animation de basculement
                         PieChartData(
                             sections: pieData
                                 .asMap()
@@ -75,8 +77,8 @@ class _PieChatWidgetState extends State<PieChartWidget> {
                                     titlePositionPercentageOffset: 0.4,
                                     titleStyle: GoogleFonts.roboto(
                                         fontSize: 18,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.orangeAccent),
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.white),
                                     color: item.value.color,
                                   ),
                                 )
@@ -95,4 +97,7 @@ class _PieChatWidgetState extends State<PieChartWidget> {
   }
 
   
+}
+
+class LegendOption {
 }

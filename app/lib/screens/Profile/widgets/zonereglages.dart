@@ -1,8 +1,9 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_auth.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:gestionary/screens/auth/login.dart';
-import 'package:gestionary/providers/authprovider.dart';
+import 'package:gestionary/providers/auth_provider.dart';
 import 'package:gestionary/screens/settings/settings.dart';
 import 'package:gestionary/screens/update/edituser.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -86,6 +87,9 @@ class _MyReglagesState extends State<MyReglages> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Container(
         padding: const EdgeInsets.all(20),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -101,11 +105,12 @@ class _MyReglagesState extends State<MyReglages> {
                   children: [
                     Row(
                       children: [
-                        const Icon(Icons.edit, size: 30),
+                      Icon(Icons.edit, size: 30,color:isDark ? textDark : null,),
                         const SizedBox(width: 20),
                         Text(
                           "Modifier votre compte",
                           style: GoogleFonts.roboto(
+                            color:isDark ? textDark : null,
                               fontSize: 20, fontWeight: FontWeight.w600),
                         ),
                         const Spacer(),
@@ -131,11 +136,12 @@ class _MyReglagesState extends State<MyReglages> {
                 padding: const EdgeInsets.all(10),
                 child: Row(
                   children: [
-                    const Icon(Icons.settings_outlined, size: 30),
+                    Icon(Icons.settings_outlined, size: 30,color:isDark ? textDark : null,),
                     const SizedBox(width: 20),
                     Text(
                       "Réglages",
                       style: GoogleFonts.roboto(
+                        color:isDark ? textDark : null,
                           fontSize: 20, fontWeight: FontWeight.w600),
                     ),
                     const Spacer(),
@@ -190,6 +196,7 @@ class _MyReglagesState extends State<MyReglages> {
                   child: Text(
                     "Supprimer mon compte",
                     style: GoogleFonts.roboto(
+                      
                         fontSize: 18, fontWeight: FontWeight.w600,color:const Color(0xFF292D4E)),
                   ),
                 ),

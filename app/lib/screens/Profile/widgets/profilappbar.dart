@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 
 class SettingsAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -10,12 +12,16 @@ class SettingsAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    Color? backgroundDark = provider.colorBackground;
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Container(
       decoration: const BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            width: 1,
-            color:Color.fromARGB(255, 224, 224, 224)))
+            width: 0,
+            color:Color.fromARGB(255, 224, 224, 224))),
       ),
       child: AppBar(
         automaticallyImplyLeading: false,
@@ -24,10 +30,10 @@ class SettingsAppBar extends StatelessWidget implements PreferredSizeWidget {
              style:GoogleFonts.aBeeZee(
               fontSize:24,
               fontWeight: FontWeight.w700, 
-              color:Colors.black),
+              color:isDark ? textDark :Colors.black),
             ),
             centerTitle: true,
-            backgroundColor: Colors.grey[200],
+            backgroundColor: isDark ? backgroundDark :Colors.white,
             elevation: 0,
       ),
     );

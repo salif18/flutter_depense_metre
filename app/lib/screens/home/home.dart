@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gestionary/models/user.dart';
-import 'package:gestionary/providers/statisticprovider.dart';
-import 'package:gestionary/providers/userprovider.dart';
+import 'package:gestionary/providers/statistic_provider.dart';
+import 'package:gestionary/providers/theme_provider.dart';
+import 'package:gestionary/providers/user_provider.dart';
 import 'package:gestionary/screens/budgets/budgets.dart';
 import 'package:gestionary/screens/home/widget/carousel.dart';
 import 'package:gestionary/screens/home/widget/monthdepense.dart';
@@ -45,8 +46,12 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    Color? backgroundDark = provider.colorBackground;
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
     return Container(
-       color: const Color.fromARGB(255, 188, 175, 202),
+       color:isDark? backgroundDark :const Color.fromARGB(255, 188, 175, 202),
       child: SafeArea(
         child: RefreshIndicator(
           backgroundColor: const Color.fromARGB(255, 34, 12, 49),
@@ -54,7 +59,7 @@ class _HomeState extends State<Home> {
           onRefresh: _refresh,
           displacement: 50,
           child: Scaffold(
-            backgroundColor: const Color.fromARGB(255, 188, 175, 202),
+            backgroundColor: isDark? backgroundDark:const Color.fromARGB(255, 188, 175, 202),
             body: CustomScrollView(
               slivers: [
                 SliverList(
@@ -69,7 +74,9 @@ class _HomeState extends State<Home> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text("Salut !",
-                                    style: GoogleFonts.roboto(fontSize: 24)),
+                                    style: GoogleFonts.roboto(
+                                      color:isDark ? textDark : null,
+                                      fontSize: 24)),
                                 Consumer<UserInfosProvider>(
                                     builder: (context, provider, child) {
                                   return FutureBuilder<ModelUser?>(
@@ -81,7 +88,7 @@ class _HomeState extends State<Home> {
                                             style: GoogleFonts.roboto(
                                                 fontSize: 24,
                                                 fontWeight: FontWeight.w900,
-                                                color: const Color.fromARGB(
+                                                color: isDark ? textDark : const Color.fromARGB(
                                                     255, 34, 12, 49)));
                                       });
                                 })
@@ -98,10 +105,12 @@ class _HomeState extends State<Home> {
                                               builder: (context) =>
                                                   const Budgets()));
                                     },
-                                    icon: const Icon(Icons.account_balance_sharp,
+                                    icon:Icon(Icons.account_balance_sharp,
+                                     color:isDark ? textDark : null,
                                         size: 30)),
                                 Text("budgets",
                                     style: GoogleFonts.aBeeZee(
+                                       color:isDark ? textDark : null,
                                         fontSize: 18,
                                         fontWeight: FontWeight.w600))
                               ],
@@ -126,11 +135,11 @@ class _HomeState extends State<Home> {
                         ),
                         Container(
                           padding: const EdgeInsets.only(top: 20),
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(40),
                                 topRight: Radius.circular(40)),
-                            color: Colors.white,
+                            color:isDark ? backgroundDark : Colors.white,
                           ),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20, right: 20),

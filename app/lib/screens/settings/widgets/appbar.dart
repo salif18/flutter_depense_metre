@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gestionary/providers/theme_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
-class SettingsAppBar extends StatelessWidget
-    implements PreferredSizeWidget {
+class SettingsAppBar extends StatelessWidget implements PreferredSizeWidget {
   const SettingsAppBar({super.key});
 
   @override
@@ -10,21 +11,30 @@ class SettingsAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
+    bool isDark = provider.isDark;
+    Color? backgroundDark = provider.colorBackground;
+    Color? iconDark = provider.colorText;
     return AppBar(
       toolbarHeight: 80,
       centerTitle: false,
+      backgroundColor: isDark ? backgroundDark : null,
       leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.arrow_back_ios_new, size: 25)),
+          icon: Icon(Icons.arrow_back_ios_new,
+              color: isDark ? iconDark : null, size: 25)),
       title: Row(
         children: [
           Text("Reglages",
               style: GoogleFonts.roboto(
-                  fontSize: 24, fontWeight: FontWeight.w500)),
+                  color: isDark ? iconDark : null,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w500)),
           const SizedBox(width: 20),
-          const Icon(Icons.settings_outlined, size: 25)
+          Icon(Icons.settings_outlined,
+              color: isDark ? iconDark : null, size: 25)
         ],
       ),
     );
