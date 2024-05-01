@@ -111,7 +111,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                           Text(
                             "$totalMonth",
                             style: GoogleFonts.roboto(
-                              color:Colors.red,
+                              color: isDark? Colors.red : Colors.black,
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(width: 10),
@@ -185,7 +185,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
           children: [
             Row(
               children: [
-                regeneredIcon(category?["name_categories"] ?? ""),
+                regeneredIcon(category?["name_categories".toLowerCase()] ?? ""),
                 const SizedBox(
                   width: 10,
                 ),
@@ -199,8 +199,8 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
               children: [
                 Text("${expense.amount}",
                     style: GoogleFonts.roboto(
-                      color:Colors.amber,
-                        fontSize: 20, fontWeight: FontWeight.w600)),
+                      color: isDark ? Colors.green : Colors.red,
+                        fontSize: 20, fontWeight: FontWeight.w800)),
                 const SizedBox(
                   width: 10,
                 ),
@@ -280,6 +280,12 @@ Icon regeneredIcon(expense) {
     case "Dettes":
       return const Icon(Icons.soap_rounded,
           color: Color.fromARGB(255, 255, 137, 68), size: 30);
+    case "Sports":
+      return const Icon(Icons.sports_gymnastics_outlined,
+          color: Color.fromARGB(255, 68, 218, 255), size: 30);
+       case "Gims":
+      return const Icon(Icons.sports_kabaddi_rounded,
+          color: Color.fromARGB(255, 255, 94, 0), size: 30);
     case "Carburants":
       return const Icon(Icons.oil_barrel_rounded, color: Colors.red, size: 30);
     default:

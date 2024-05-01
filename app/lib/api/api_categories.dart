@@ -21,8 +21,8 @@ class CategoriesApi{
     );
   }
    //obtenir categorie pour formulaire
-  getCategories()async{
-    var uri = "$urlServer/categories";
+  getCategories(userId)async{
+    var uri = "$urlServer/categories/$userId";
     return await http.get(Uri.parse(uri),
      headers: {
             "Content-Type": "application/json; charset=UTF-8",

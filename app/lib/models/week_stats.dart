@@ -10,7 +10,7 @@ class ModelWeekStats{
  factory ModelWeekStats.fromJson(Map<String,dynamic> json){
   return ModelWeekStats(
     date: json['date'] ?? "", 
-    total: json["total"] ?? ""
+    total: json["total"] ?? 0
     );
  }
  Map<String,dynamic> toJson(){

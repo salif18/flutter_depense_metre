@@ -44,7 +44,7 @@ class StatisticsProvider extends ChangeNotifier {
         _receivedDataWeek = (decodedData["stats"] as List)
             .map((json) => ModelWeekStats.fromJson(json))
             .toList();
-        _totalWeekStream.add(decodedData["weekTotal"]);
+        _totalWeekStream.add(decodedData["weekTotal"].toString());
         notifyListeners();
       } else {
         return;

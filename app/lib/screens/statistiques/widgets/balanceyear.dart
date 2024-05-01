@@ -21,10 +21,10 @@ class _MyYearBalanceState extends State<MyYearBalance> {
     Color? textDark = provider.colorText;
     return Padding(
       padding: EdgeInsets.only(
-        top: MediaQuery.of(context).padding.top * 1.8, left: 20),
+        top: MediaQuery.of(context).padding.top * 1.2),
       child: Container(
         padding: const EdgeInsets.only(
-          left:20
+          left:20,top:20
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,

@@ -7,7 +7,11 @@ import 'package:gestionary/providers/auth_provider.dart';
 import 'package:gestionary/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  //charger le theme automatiquement au demarrage de l'app
+  WidgetsFlutterBinding.ensureInitialized();
+  final themeProvider = ThemeProvider();
+  await themeProvider.loadStatus();
   runApp(
     MultiProvider(
       providers: [
@@ -28,13 +32,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      // themeMode:ThemeMode.system,
       home: Consumer<AuthProvider>(
         builder: (context, provider, child) {
           return FutureBuilder<String?>(
             future: provider.token(),
             builder: (context, snapshot) {
               final token = snapshot.data;
-              if (token != null && token.isNotEmpty ) {
+              if (token != null && token.isNotEmpty) {
                 return const SplashScreen();
               } else {
                 return const MyLogin();

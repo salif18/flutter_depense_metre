@@ -84,11 +84,20 @@ class _MensuelsState extends State<Mensuels> {
             ),
             Padding(
               padding: const EdgeInsets.all(10),
-              child: Text("${item.total ?? 0} ",
-                  style: GoogleFonts.roboto(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("${item.total ?? 0} ",
+                      style: GoogleFonts.roboto(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white)),
+                 const Expanded(
+                  child: Icon(Icons.monetization_on, 
+                  color: Colors.greenAccent,
+                  size:33))
+                ],
+              ),
             ),
           ],
         ),

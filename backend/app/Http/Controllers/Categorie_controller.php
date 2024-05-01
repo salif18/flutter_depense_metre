@@ -11,9 +11,10 @@ class Categorie_controller extends Controller
     //AJOUT DE NOUVEAUX CATEGORIES
     public function createCategorys(Request $req){
      try{
-      $data = $req->all("name_categories");
+      $data = $req->all();
 
       $verifyField = Validator::make($data,[
+         "userId"=>"required",
          "name_categories"=>"required|string"
       ]);
 
@@ -42,9 +43,12 @@ class Categorie_controller extends Controller
    }
 
    //RECUPERER CATEGORIES
-   public function getCategorys(){
+   public function getCategorys($userId){
        try{
-          $categories = Categorie::orderBy("name_categories")->get();
+          $categories = Categorie::whereNull("userId")
+          ->orWhere("userId",$userId)
+          ->orderBy("name_categories")
+          ->get();
 
           return response()->json([
             "status"=>true,

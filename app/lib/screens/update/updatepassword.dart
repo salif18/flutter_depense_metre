@@ -77,9 +77,9 @@ class _UpdatePasswordState extends State<UpdatePassword> {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Scaffold(
-      backgroundColor: isDark ? backgroundDark :Colors.grey[200],
+      backgroundColor: isDark ? containerDark :Colors.grey[200],
       appBar: AppBar(
-        backgroundColor: isDark? backgroundDark:Colors.grey[200],
+        backgroundColor: isDark? containerDark:Colors.grey[200],
         elevation: 0,
         toolbarHeight: 80,
         automaticallyImplyLeading: false,
@@ -97,7 +97,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
           child: Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: isDark ? containerDark :Colors.white,
+              color: isDark ? backgroundDark :Colors.white,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Form(

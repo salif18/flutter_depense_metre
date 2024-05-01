@@ -11,6 +11,11 @@ class Categorie extends Model
 
     protected $guarded = [];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'userId');
+    }
+
     public function expense(){
         return $this->hasMany(Expense::class);
     }

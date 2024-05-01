@@ -31,7 +31,7 @@ class AnalyseGeneral extends StatelessWidget {
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(child: CircularProgressIndicator());
-                    } else if (snapshot.hasData) {
+                    } else if (snapshot.hasData && snapshot.data != null) {
                       ModelRapportCurrentBudgets? item = snapshot.data;
                       return Column(
                         children: [
@@ -70,20 +70,78 @@ class AnalyseGeneral extends StatelessWidget {
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.all(8),
-                              child: Text(
-                                "${item?.budgetAmount ?? 0}",
-                                style: GoogleFonts.roboto(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w600,
-                                  color: const Color.fromARGB(255, 255, 5, 5),
-                                ),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "${item?.budgetAmount ?? 0}",
+                                    style: GoogleFonts.roboto(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(255, 255, 5, 5),
+                                    ),
+                                  ),
+                                  const Expanded(child: Icon(Icons.monetization_on,color:Colors.blueAccent, size:33))
+                                ],
                               ),
                             ),
                           ),
                         ],
                       );
                     } else {
-                      return Container();
+                      return Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: CircularPercentIndicator(
+                              animation: true,
+                              animationDuration: 270,
+                              radius: 55,
+                              lineWidth: 12,
+                              percent: 0.0,
+                              progressColor: Colors.blue,
+                              backgroundColor:
+                                  const Color.fromARGB(64, 64, 83, 255),
+                              circularStrokeCap: CircularStrokeCap.round,
+                              center: Text(
+                                "0%",
+                                style: GoogleFonts.roboto(
+                                  fontSize: 25,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(7),
+                            child: Text(
+                              "De Consommation du budget",
+                              style: GoogleFonts.roboto(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "0",
+                                    style: GoogleFonts.roboto(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(255, 255, 5, 5),
+                                    ),
+                                  ),
+                                  const Expanded(child: Icon(Icons.monetization_on,color:Colors.blueAccent, size:33))
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
                     }
                   },
                 );
@@ -110,7 +168,7 @@ class AnalyseGeneral extends StatelessWidget {
                             ConnectionState.waiting) {
                           return const Center(
                               child: CircularProgressIndicator());
-                        } else if (snapshot.hasData) {
+                        } else if (snapshot.hasData && snapshot.data != null) {
                           ModelTheMostExpense? item = snapshot.data;
                           Map<String, dynamic>? category = item?.category;
                           return Column(
@@ -120,7 +178,7 @@ class AnalyseGeneral extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.only(left: 8, bottom: 2),
                                 child: Text(
-                                  "Plus depensés",
+                                  "Le plus investis",
                                   style: GoogleFonts.roboto(
                                     fontSize: 18,
                                     color: const Color.fromARGB(
@@ -152,19 +210,28 @@ class AnalyseGeneral extends StatelessWidget {
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 8),
-                                child: Text(
-                                  "${item?.totalAmount ?? 0}",
-                                  style: GoogleFonts.roboto(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white,
-                                  ),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        "${item?.totalAmount ?? 0}",
+                                        style: GoogleFonts.roboto(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                    Icon(Icons.monetization_on,color:Colors.grey[200], size:33)
+                                  ],
                                 ),
                               ),
                             ],
                           );
                         } else {
-                          return Container();
+                          return Container(
+                            child: Center(child: Text("Pas de donnees enregistre",style: GoogleFonts.roboto(fontSize:16),)),
+                          );
                         }
                       },
                     );
@@ -189,7 +256,7 @@ class AnalyseGeneral extends StatelessWidget {
                             ConnectionState.waiting) {
                           return const Center(
                               child: CircularProgressIndicator.adaptive());
-                        } else if (snapshot.hasData) {
+                        } else if (snapshot.hasData && snapshot.data != null) {
                           ModelRapportCurrentBudgets? item = snapshot.data;
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -216,19 +283,26 @@ class AnalyseGeneral extends StatelessWidget {
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 8),
-                                child: Text(
-                                  "${item?.epargnes ?? 0} Fcfa",
-                                  style: GoogleFonts.roboto(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white,
-                                  ),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "${item?.epargnes ?? 0}",
+                                      style: GoogleFonts.roboto(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Expanded(child: Icon(Icons.monetization_on, color:Colors.grey[200],size:33))
+                                  ],
                                 ),
                               ),
                             ],
                           );
                         } else {
-                          return Container();
+                          return Container(
+                            child: Center(child: Text("No data"),),
+                          );
                         }
                       },
                     );
@@ -284,6 +358,12 @@ Icon regeneredIcon(expense) {
       return const Icon(Icons.soap_rounded, color: Colors.white, size: 30);
     case "Carburants":
       return const Icon(Icons.oil_barrel_rounded,
+          color: Colors.white, size: 30);
+    case "Sports":
+      return const Icon(Icons.sports_gymnastics_outlined,
+          color: Colors.white, size: 30);
+    case "Gims":
+      return const Icon(Icons.sports_kabaddi_rounded,
           color: Colors.white, size: 30);
     default:
       return const Icon(Icons.account_balance_wallet,

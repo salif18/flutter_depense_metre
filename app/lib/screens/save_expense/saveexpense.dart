@@ -46,8 +46,10 @@ class _SaveExpensesState extends State<SaveExpenses> {
 
 //recuperer les cetegories par defaults
   Future<void> getCategoriesForm() async {
+     final provider = Provider.of<AuthProvider>(context, listen: false);
+       var userId = await provider.userId();
     try {
-      final res = await categApi.getCategories();
+      final res = await categApi.getCategories(userId);
       dynamic decodedData = jsonDecode(res.body);
       if (res.statusCode == 200) {
         setState(() {

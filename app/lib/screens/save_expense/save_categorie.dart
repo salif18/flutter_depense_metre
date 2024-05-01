@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_categories.dart';
+import 'package:gestionary/providers/auth_provider.dart';
 import 'package:gestionary/providers/theme_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -27,8 +28,13 @@ class _CreateCategoriesState extends State<CreateCategories> {
   }
 
   Future<void> sendCategorie() async {
-    var data = {"name_categories": nameCategorie.text};
     if (_formKey.currentState!.validate()) {
+       final provider = Provider.of<AuthProvider>(context, listen: false);
+       var userId = await provider.userId();
+       var data = {
+        "userId":userId,
+        "name_categories": nameCategorie.text
+        };
       try {
         showDialog(
             context: context,
@@ -41,7 +47,7 @@ class _CreateCategoriesState extends State<CreateCategories> {
         final dynamic decodedData = jsonDecode(res.body);
         if (res.statusCode == 201) {
           _cateApi.showSnackBarSuccessPersonalized(
-              context, decodedData["message"]);
+              context, decodedData["message"].toString());
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(

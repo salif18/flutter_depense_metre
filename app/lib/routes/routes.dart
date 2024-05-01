@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestionary/providers/theme_provider.dart';
+import 'package:gestionary/screens/budgets/addbudgets.dart';
 import 'package:gestionary/screens/home/home.dart';
 import 'package:gestionary/screens/Profile/profil.dart';
 import 'package:gestionary/screens/save_expense/save_categorie.dart';
@@ -121,6 +122,24 @@ class _MainRoutesState extends State<MainRoutes> {
     );
   }
 
+  _showAddBudget(BuildContext context, isDark, background, textDark) {
+    showModalBottomSheet(
+        isScrollControlled: true,
+        context: context,
+        builder: (BuildContext context) {
+          return Container(
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+              color: isDark ? background : Colors.grey[200],
+            ),
+            padding: const EdgeInsets.all(20),
+            height: MediaQuery.of(context).size.height * 0.6,
+            child: const AddBudget(),
+          );
+        });
+  }
+
 // fenetre pour ajouter categorie
   void awesomeWidget(BuildContext context) {
     showDialog(
@@ -128,6 +147,7 @@ class _MainRoutesState extends State<MainRoutes> {
         builder: (BuildContext context) {
           ThemeProvider provider = Provider.of<ThemeProvider>(context);
           Color? containerBg = provider.containerBackg;
+          Color? backgroundDark = provider.colorBackground;
           Color? textDark = provider.colorText;
           bool isDark = provider.isDark;
           return AlertDialog(
@@ -150,13 +170,27 @@ class _MainRoutesState extends State<MainRoutes> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              backgroundColor: isDark ? containerBg :Colors.grey[200],
+                              backgroundColor:
+                                  isDark ? containerBg : Colors.grey[200],
                               content: const CreateCategories(),
                             );
                           },
                         );
                       },
-                      child: Text("Créer vos catégories",
+                      child: Text("Créer votre catégorie",
+                          style: GoogleFonts.roboto(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.blue))),
+                  const Divider(
+                    height: 2,
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        _showAddBudget(
+                            context, isDark, backgroundDark, textDark);
+                      },
+                      child: Text("Entrer le budget du mois",
                           style: GoogleFonts.roboto(
                               fontSize: 20,
                               fontWeight: FontWeight.w500,

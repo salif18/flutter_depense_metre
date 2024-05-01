@@ -66,61 +66,64 @@ class _HomeState extends State<Home> {
                   delegate: SliverChildListDelegate(
                     [
                       Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Salut !",
-                                    style: GoogleFonts.roboto(
-                                      color:isDark ? textDark : null,
-                                      fontSize: 24)),
-                                Consumer<UserInfosProvider>(
-                                    builder: (context, provider, child) {
-                                  return FutureBuilder<ModelUser?>(
-                                      future:
-                                          provider.loadProfilFromLocalStorage(),
-                                      builder: (context, snapshot) {
-                                        final profil = snapshot.data!;
-                                        return Text("${profil.name},",
-                                            style: GoogleFonts.roboto(
-                                                fontSize: 24,
-                                                fontWeight: FontWeight.w900,
-                                                color: isDark ? textDark : const Color.fromARGB(
-                                                    255, 34, 12, 49)));
-                                      });
-                                })
-                              ],
-                            ),
-      
-                            Column(
-                              children: [
-                                IconButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const Budgets()));
-                                    },
-                                    icon:Icon(Icons.account_balance_sharp,
-                                     color:isDark ? textDark : null,
-                                        size: 30)),
-                                Text("budgets",
-                                    style: GoogleFonts.aBeeZee(
+                        padding: EdgeInsets.only(top:MediaQuery.of(context).padding.top *1.2),
+                        child: Container(
+                          padding:const EdgeInsets.only(left:20,right: 20, top:20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Salut !",
+                                      style: GoogleFonts.roboto(
+                                        color:isDark ? textDark : null,
+                                        fontSize: 24)),
+                                  Consumer<UserInfosProvider>(
+                                      builder: (context, provider, child) {
+                                    return FutureBuilder<ModelUser?>(
+                                        future:
+                                            provider.loadProfilFromLocalStorage(),
+                                        builder: (context, snapshot) {
+                                          final profil = snapshot.data!;
+                                          return Text("${profil.name},",
+                                              style: GoogleFonts.roboto(
+                                                  fontSize: 24,
+                                                  fontWeight: FontWeight.w900,
+                                                  color: isDark ? textDark : const Color.fromARGB(
+                                                      255, 34, 12, 49)));
+                                        });
+                                  })
+                                ],
+                              ),
+                                
+                              Column(
+                                children: [
+                                  IconButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const Budgets()));
+                                      },
+                                      icon:Icon(Icons.account_balance_sharp,
                                        color:isDark ? textDark : null,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w600))
-                              ],
-                            ),
-      
-                            // const SizedBox(width: 5)
-                          ],
+                                          size: 30)),
+                                  Text("budgets",
+                                      style: GoogleFonts.aBeeZee(
+                                         color:isDark ? textDark : null,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w600))
+                                ],
+                              ),
+                                
+                              // const SizedBox(width: 5)
+                            ],
+                          ),
                         ),
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 20),
                       const MyCarousel(),
                     ],
                   ),

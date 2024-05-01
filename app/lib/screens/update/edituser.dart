@@ -79,7 +79,7 @@ class _EditUserState extends State<EditUser> {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Scaffold(
-      backgroundColor: isDark ? backgroundDark :Colors.grey[200],
+      backgroundColor: isDark? containerDark :Colors.grey[200],
       appBar: const UpdateAppBar(),
       body: Container(
         padding: const EdgeInsets.all(20),
@@ -87,7 +87,7 @@ class _EditUserState extends State<EditUser> {
           child: Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-                color: isDark ? containerDark:Colors.white, 
+                color: isDark ? backgroundDark:Colors.white, 
                 borderRadius: BorderRadius.circular(20)),
             child: Column(
               children: [

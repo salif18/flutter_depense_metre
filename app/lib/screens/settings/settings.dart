@@ -48,6 +48,7 @@ class _SettingsState extends State<Settings> {
                   children: [
                     _changerMotdePass(context, provider),
                     Container(height: 1, width: 320, color: Colors.grey[200]),
+                    _about(context, provider),
                   ],
                 ),
               ),
@@ -75,7 +76,7 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.notifications,
+                  Icon(Icons.notifications_none_outlined,
                       color: isDark ? Colors.white : null, size: 30),
                   const SizedBox(width: 10),
                   Text("Notification",
@@ -110,10 +111,11 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(isDark ? Icons.mode_night : Icons.sunny,
-                      size: 30, color: Colors.amber),
+                Icon(Icons.wb_sunny_outlined,
+                  color: isDark ? Colors.white : null,
+                      size: 30, ),
                   const SizedBox(width: 10),
-                  Text(isDark ? "Sombre" : "Clair",
+                  Text(isDark ? "Thème sombre" : "Thème clair",
                       style: GoogleFonts.aBeeZee(
                           color: isDark ? Colors.white : null,
                           fontSize: 20,
@@ -128,8 +130,11 @@ class _SettingsState extends State<Settings> {
             onChanged: (value) {
               provider.changeTheme();
             },
-            activeColor: const Color.fromARGB(255, 183, 1, 255),
-            activeTrackColor: Colors.grey[800],
+            activeColor: Colors.white,
+            activeTrackColor: Colors.green,
+            inactiveTrackColor: Colors.grey[200],
+            inactiveThumbColor: Colors.white,
+            
           ))
         ],
       ),
@@ -177,6 +182,46 @@ class _SettingsState extends State<Settings> {
     );
   }
 
+  Widget _about(BuildContext context, ThemeProvider provider) {
+    bool isDark = provider.isDark;
+    Color? textDark = provider.colorText;
+    return Container(
+      padding: const EdgeInsets.all(20),
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(),
+      height: 100,
+      child: InkWell(
+        onTap: null,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(Icons.help_outline_outlined, color: isDark ? textDark : null, size: 30),
+                    const SizedBox(width: 10),
+                    Text("A propos",
+                        style: GoogleFonts.aBeeZee(
+                            color: isDark ? textDark : null,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w300))
+                  ],
+                ),
+              ],
+            ),
+            Expanded(
+                child: Icon(Icons.arrow_forward_ios_rounded,
+                    color: isDark ? textDark : null, size: 24))
+          ],
+        ),
+      ),
+    );
+  }
+
   void _showUpdatePassword(BuildContext context) {
     showModalBottomSheet(
         isScrollControlled: true,
@@ -189,7 +234,7 @@ class _SettingsState extends State<Settings> {
               height: MediaQuery.of(context).size.height * 0.9,
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: isDark ? const Color.fromARGB(237, 0, 0, 0) : null,
+                color: isDark ? Colors.black : null,
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20)),

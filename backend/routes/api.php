@@ -57,7 +57,7 @@ Route::delete("/expenses/{id}",[Expense_controller::class,"deleteExpenses"]);
 
 //REQUETTES CATEGORIES
 Route::post("/categories",[Categorie_controller::class,"createCategorys"]);
-Route::get("/categories",[Categorie_controller::class,"getCategorys"]);
+Route::get("/categories/{userId}",[Categorie_controller::class,"getCategorys"]);
 
 //REQUETTES BUDGETS
 Route::post("/budgets",[Budget_controller::class,"createBudgets"]);
