@@ -128,7 +128,7 @@ class BarChartExpenseState extends State<BarChartExpense> {
     return BarChartData(
       barTouchData: BarTouchData(
         touchTooltipData: BarTouchTooltipData(
-           tooltipBgColor: Colors.transparent,
+          //  tooltipBgColor: Colors.transparent,
           tooltipMargin: -10,
           getTooltipItem: (group, groupIndex, rod, rodIndex) {
             String weekDay;

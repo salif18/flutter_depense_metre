@@ -75,7 +75,7 @@ class LineChartWidget extends StatelessWidget {
     return LineTouchData(
       enabled: true,
       touchTooltipData: LineTouchTooltipData(
-        tooltipBgColor: Colors.transparent,
+        // tooltipBgColor: Colors.transparent,
         tooltipPadding: const EdgeInsets.all(5),
         getTooltipItems: (touchedSpots) {
           return touchedSpots.map((LineBarSpot touchedSpot) {

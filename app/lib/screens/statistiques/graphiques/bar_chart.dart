@@ -91,7 +91,7 @@ class _BarChartWidgetState extends State<BarChartWidget> {
   BarTouchData myBarTouchData(List<ModelBarData> modelBarData) {
     return BarTouchData(touchTooltipData:
         BarTouchTooltipData(
-          tooltipBgColor: Colors.transparent,
+          // tooltipBgColor: Colors.transparent,
           tooltipMargin: -10,
           getTooltipItem: (group, groupIndex, rod, rodIndex) {
       String weekDay;
