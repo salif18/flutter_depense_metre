@@ -92,10 +92,10 @@ class _MensuelsState extends State<Mensuels> {
                           fontSize:  MediaQuery.of(context).size.width*0.04,
                           fontWeight: FontWeight.w600,
                           color: Colors.white)),
-                 const Expanded(
+                 Expanded(
                   child: Icon(Icons.monetization_on, 
                   color: Colors.greenAccent,
-                  size:33))
+                  size:MediaQuery.of(context).size.width*0.06))
                 ],
               ),
             ),
