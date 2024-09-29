@@ -23,14 +23,11 @@ class _MainRoutesState extends State<MainRoutes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _currentIndex,
-        children: const [
-          Home(),
-          MyStats(),
-          MyProfile(),
-        ],
-      ),
+      body: [
+        Home(),
+        MyStats(),
+        MyProfile(),
+      ][_currentIndex],
       bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
