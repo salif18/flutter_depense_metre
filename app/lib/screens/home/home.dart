@@ -8,6 +8,7 @@ import 'package:gestionary/screens/home/widget/carousel.dart';
 import 'package:gestionary/screens/home/widget/monthdepense.dart';
 import 'package:gestionary/screens/home/widget/todaydepense.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
@@ -51,10 +52,10 @@ class _HomeState extends State<Home> {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Container(
-       color:isDark? backgroundDark :const Color.fromARGB(255, 188, 175, 202),
+       color:isDark? backgroundDark :const Color(0xfff0f1f5),
       child: SafeArea(
         child: Scaffold(
-            backgroundColor: isDark? backgroundDark:const Color.fromARGB(255, 188, 175, 202),
+            backgroundColor: isDark? backgroundDark:const Color(0xfff0f1f5),
             body: RefreshIndicator(
           backgroundColor: const Color.fromARGB(255, 34, 12, 49),
           color: Colors.grey[100],
@@ -107,7 +108,7 @@ class _HomeState extends State<Home> {
                                                 builder: (context) =>
                                                     const Budgets()));
                                       },
-                                      icon:Icon(Icons.account_balance_sharp,
+                                      icon:Icon(LineIcons.wavyMoneyBill,
                                        color:isDark ? textDark : null,
                                           size: MediaQuery.of(context).size.width*0.06)),
                                   Text("budgets",
