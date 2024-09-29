@@ -28,7 +28,7 @@ class SettingsAppBar extends StatelessWidget implements PreferredSizeWidget {
         toolbarHeight: 85,
            title: Text("Profil",
              style:GoogleFonts.aBeeZee(
-              fontSize:24,
+              fontSize: MediaQuery.of(context).size.width*0.05,
               fontWeight: FontWeight.w700, 
               color:isDark ? textDark :Colors.black),
             ),

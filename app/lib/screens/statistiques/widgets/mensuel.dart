@@ -53,14 +53,14 @@ class _MensuelsState extends State<Mensuels> {
           borderRadius: BorderRadius.circular(20), color: Colors.grey[100]),
       child: Center(
           child: Text("Aucuns données enregistrés ",
-              style: GoogleFonts.roboto(fontSize: 18))),
+              style: GoogleFonts.roboto(fontSize:  MediaQuery.of(context).size.width*0.04))),
     );
   }
 
   Widget _cardMonthStats(BuildContext context, item) {
     return Container(
-      height: 200,
-      width: 185,
+      height:  100,
+      width:  MediaQuery.of(context).size.width*0.5,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       child: Card(
         elevation: 4,
@@ -75,10 +75,10 @@ class _MensuelsState extends State<Mensuels> {
                   padding: const EdgeInsets.all(10),
                   child: formatDate(item.month ?? ''),
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(10),
                   child: Icon(Icons.arrow_right,
-                      size: 33, color: Color.fromARGB(255, 221, 221, 221)),
+                      size:  MediaQuery.of(context).size.width*0.06, color: Color.fromARGB(255, 221, 221, 221)),
                 )
               ],
             ),
@@ -89,7 +89,7 @@ class _MensuelsState extends State<Mensuels> {
                 children: [
                   Text("${item.total ?? 0} ",
                       style: GoogleFonts.roboto(
-                          fontSize: 25,
+                          fontSize:  MediaQuery.of(context).size.width*0.04,
                           fontWeight: FontWeight.w600,
                           color: Colors.white)),
                  const Expanded(
@@ -113,13 +113,13 @@ class _MensuelsState extends State<Mensuels> {
       case 01:
         return Text("Janvier",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w600,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 02:
         return Text("Fevrier",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 03:
@@ -131,59 +131,59 @@ class _MensuelsState extends State<Mensuels> {
       case 04:
         return Text("Avril",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 05:
         return Text("Mai",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 06:
         return Text("Juin",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 07:
         return Text("Juillet",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 08:
         return Text("Aout",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 09:
         return Text("Septembre",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 10:
         return Text("Octobre",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 11:
         return Text("Novembre",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 12:
         return Text("Decembre",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       default:
-        return Text("Non definit", style: GoogleFonts.roboto(fontSize: 18));
+        return Text("Non definit", style: GoogleFonts.roboto(fontSize:  MediaQuery.of(context).size.width*0.04,));
     }
   }
 }

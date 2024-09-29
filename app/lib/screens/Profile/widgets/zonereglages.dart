@@ -57,7 +57,7 @@ class _MyReglagesState extends State<MyReglages> {
   void showSnackBarSuccessPersonalized(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(message,
-          style: GoogleFonts.roboto(fontSize: 20, fontWeight: FontWeight.w500)),
+          style: GoogleFonts.roboto(fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w500)),
       backgroundColor: Colors.green,
       duration: const Duration(seconds: 2),
       action: SnackBarAction(
@@ -73,7 +73,7 @@ class _MyReglagesState extends State<MyReglages> {
   void showSnackBarErrorPersonalized(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(message,
-          style: GoogleFonts.roboto(fontSize: 20, fontWeight: FontWeight.w500)),
+          style: GoogleFonts.roboto(fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w500)),
       backgroundColor: const Color.fromARGB(255, 255, 35, 19),
       duration: const Duration(seconds: 5),
       action: SnackBarAction(
@@ -105,18 +105,18 @@ class _MyReglagesState extends State<MyReglages> {
                   children: [
                     Row(
                       children: [
-                      Icon(Icons.edit, size: 30,color:isDark ? textDark : null,),
+                      Icon(Icons.edit, size:  MediaQuery.of(context).size.width*0.05,color:isDark ? textDark : null,),
                         const SizedBox(width: 20),
                         Text(
                           "Modifier votre compte",
                           style: GoogleFonts.roboto(
                             color:isDark ? textDark : null,
-                              fontSize: 20, fontWeight: FontWeight.w600),
+                              fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w600),
                         ),
                         const Spacer(),
-                        const Icon(
+                         Icon(
                           Icons.arrow_forward_ios,
-                          size: 23,
+                          size:  MediaQuery.of(context).size.width*0.05,
                           color: Colors.grey,
                         )
                       ],
@@ -136,18 +136,18 @@ class _MyReglagesState extends State<MyReglages> {
                 padding: const EdgeInsets.all(10),
                 child: Row(
                   children: [
-                    Icon(Icons.settings_outlined, size: 30,color:isDark ? textDark : null,),
+                    Icon(Icons.settings_outlined, size:  MediaQuery.of(context).size.width*0.05,color:isDark ? textDark : null,),
                     const SizedBox(width: 20),
                     Text(
                       "Réglages",
                       style: GoogleFonts.roboto(
                         color:isDark ? textDark : null,
-                          fontSize: 20, fontWeight: FontWeight.w600),
+                          fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w600),
                     ),
                     const Spacer(),
-                    const Icon(
+                    Icon(
                       Icons.arrow_forward_ios,
-                      size: 23,
+                      size:  MediaQuery.of(context).size.width*0.05,
                       color: Colors.grey,
                     )
                   ],
@@ -175,7 +175,7 @@ class _MyReglagesState extends State<MyReglages> {
                       Text(
                         "Se déconnecter",
                         style: GoogleFonts.roboto(
-                            fontSize: 20, fontWeight: FontWeight.w600),
+                            fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w600),
                       ),
                     ],
                   ),
@@ -197,7 +197,7 @@ class _MyReglagesState extends State<MyReglages> {
                     "Supprimer mon compte",
                     style: GoogleFonts.roboto(
                       
-                        fontSize: 18, fontWeight: FontWeight.w600,color:const Color(0xFF292D4E)),
+                        fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w600,color:const Color(0xFF292D4E)),
                   ),
                 ),
               ),
@@ -223,7 +223,7 @@ class _MyReglagesState extends State<MyReglages> {
                   child: Text(
                       "Etes-vous sur de vouloir supprimer votre compte? cette action est irreversible.",
                       style:
-                          GoogleFonts.roboto(fontSize: 16, color: Colors.grey)),
+                          GoogleFonts.roboto(fontSize:  MediaQuery.of(context).size.width*0.04, color: Colors.grey)),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),

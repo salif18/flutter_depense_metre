@@ -132,7 +132,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
               style:
                   GoogleFonts.roboto(
                     color:isDark ? textDark : null,
-                    fontSize: 23, fontWeight: FontWeight.w600),
+                    fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w600),
             ),
           ),
           Padding(
@@ -142,7 +142,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
               style:
                   GoogleFonts.roboto(
                     color:isDark ? textDark : null,
-                    fontSize: 16, fontWeight: FontWeight.w400),
+                    fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w400),
             ),
           )
         ],
@@ -168,7 +168,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
           fillColor: Colors.grey[100],
           hintText: "Mot de passe actuel",
           hintStyle:
-              GoogleFonts.aBeeZee(fontSize: 18, fontWeight: FontWeight.w400),
+              GoogleFonts.aBeeZee(fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w400),
           // prefixIcon: const Icon(Icons.lock_outline_rounded, size: 33),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
@@ -197,7 +197,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
           fillColor: Colors.grey[100],
           hintText: "Nouveau mot de passe",
           hintStyle:
-              GoogleFonts.aBeeZee(fontSize: 18, fontWeight: FontWeight.w400),
+              GoogleFonts.aBeeZee(fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w400),
           // prefixIcon: const Icon(Icons.lock_outline_rounded, size: 33),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
@@ -226,7 +226,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
           fillColor: Colors.grey[100],
           hintText: "Retapez le nouveau mot de passe",
           hintStyle:
-              GoogleFonts.aBeeZee(fontSize: 18, fontWeight: FontWeight.w400),
+              GoogleFonts.aBeeZee(fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w400),
           // prefixIcon: const Icon(Icons.lock_outline_rounded, size: 33),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
@@ -247,7 +247,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
                   MaterialPageRoute(builder: (context) => const ResetToken()));
             },
             child: Text("Mot de passe oublié ?",
-                style: GoogleFonts.roboto(fontSize: 16)))
+                style: GoogleFonts.roboto(fontSize:  MediaQuery.of(context).size.width*0.04,)))
       ]),
     );
   }
@@ -265,7 +265,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
         child: Text(
           "Changer le mot de passe",
           style: GoogleFonts.roboto(
-            fontSize: 20,
+            fontSize:  MediaQuery.of(context).size.width*0.04,
             fontWeight: FontWeight.w500,
             color: Colors.grey[100],
           ),

@@ -118,7 +118,7 @@ class _EditUserState extends State<EditUser> {
               style:
                   GoogleFonts.roboto(
                     color:isDark ? textDark : null,
-                    fontSize: 23, fontWeight: FontWeight.w600),
+                    fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w600),
             ),
           ),
           Padding(
@@ -128,7 +128,7 @@ class _EditUserState extends State<EditUser> {
               style:
                   GoogleFonts.roboto(
                     color:isDark ? textDark : null,
-                    fontSize: 18, fontWeight: FontWeight.w400),
+                    fontSize: MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w400),
             ),
           )
         ],
@@ -147,8 +147,8 @@ class _EditUserState extends State<EditUser> {
           fillColor: Colors.grey[100],
           hintText: "Name",
           hintStyle:
-              GoogleFonts.aBeeZee(fontSize: 18, fontWeight: FontWeight.w400),
-          prefixIcon: const Icon(Icons.person_2_outlined, size: 33),
+              GoogleFonts.aBeeZee(fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w400),
+          prefixIcon: Icon(Icons.person_2_outlined, size:  MediaQuery.of(context).size.width*0.05),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide.none),
@@ -217,8 +217,8 @@ class _EditUserState extends State<EditUser> {
           fillColor: Colors.grey[100],
           hintText: "Numero",
           hintStyle:
-              GoogleFonts.aBeeZee(fontSize: 18, fontWeight: FontWeight.w400),
-          prefixIcon: const Icon(Icons.phone_android, size: 33),
+              GoogleFonts.aBeeZee(fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w400),
+          prefixIcon: Icon(Icons.phone_android, size:  MediaQuery.of(context).size.width*0.05),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide.none),
@@ -238,8 +238,8 @@ class _EditUserState extends State<EditUser> {
           fillColor: Colors.grey[100],
           hintText: "Email",
           hintStyle:
-              GoogleFonts.aBeeZee(fontSize: 18, fontWeight: FontWeight.w400),
-          prefixIcon: const Icon(Icons.mail_outline, size: 33),
+              GoogleFonts.aBeeZee(fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w400),
+          prefixIcon: Icon(Icons.mail_outline, size:  MediaQuery.of(context).size.width*0.05),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide.none),
@@ -257,10 +257,10 @@ class _EditUserState extends State<EditUser> {
               elevation: 5,
               fixedSize: const Size(320, 50)),
           onPressed: _sendUpdate,
-          icon: Icon(Icons.edit, size: 30, color: Colors.grey[100]),
+          icon: Icon(Icons.edit, size:  MediaQuery.of(context).size.width*0.05, color: Colors.grey[100]),
           label: Text("Modifier le profil",
               style: GoogleFonts.roboto(
-                  fontSize: 20,
+                  fontSize:  MediaQuery.of(context).size.width*0.04,
                   fontWeight: FontWeight.w500,
                   color: Colors.grey[100]))),
     );

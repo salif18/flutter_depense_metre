@@ -19,7 +19,7 @@ class BonusDay extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           child: Text("Analyse votre ",
               style: GoogleFonts.roboto(
-                  fontSize: 24,
+                  fontSize:  MediaQuery.of(context).size.width*0.05,
                   fontWeight: FontWeight.w500,
                   color:isDark ? textDark : null,)),
         ),
@@ -35,7 +35,7 @@ class BonusDay extends StatelessWidget {
             ),
             child: Text("Dépenses ",
                 style: GoogleFonts.roboto(
-                    fontSize: 18,
+                    fontSize:  MediaQuery.of(context).size.width*0.04,
                     fontWeight: FontWeight.w500,
                     color: Colors.white)),
           ),

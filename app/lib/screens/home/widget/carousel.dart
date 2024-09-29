@@ -29,7 +29,7 @@ class MyCarousel extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 5, left: 25),
                       child: Text("Hebdomadaire",
                           style: GoogleFonts.roboto(
-                              fontSize: 20,
+                              fontSize: MediaQuery.of(context).size.width*0.04,
                               color: Colors.white,
                               fontWeight: FontWeight.w300)),
                     ),
@@ -43,7 +43,7 @@ class MyCarousel extends StatelessWidget {
                                 String? sum = snapshot.data;
                                 return Text("${sum ?? 0} Fcfa",
                                     style: GoogleFonts.roboto(
-                                        fontSize: 20,
+                                        fontSize: MediaQuery.of(context).size.width*0.05,
                                         color: Colors.white,
                                         fontWeight: FontWeight.w500));
                               });

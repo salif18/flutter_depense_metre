@@ -66,11 +66,11 @@ class _BudgetsState extends State<Budgets> {
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: Icon(Icons.arrow_back_ios_new,
-                color: isDark ? textDark :Colors.grey[100], size: 25)),
+                color: isDark ? textDark :Colors.grey[100], size: 24)),
         centerTitle: true,
         title: Text("Budgets",
             style: GoogleFonts.roboto(
-                fontSize: 20,
+                fontSize:  MediaQuery.of(context).size.width*0.05,
                 color: Colors.grey[100],
                 fontWeight: FontWeight.w500)),
       ),
@@ -83,7 +83,7 @@ class _BudgetsState extends State<Budgets> {
               child: Text("Archives de vos Budgets",
               style:GoogleFonts.aBeeZee(
                 color:isDark ? textDark : null,
-                fontSize:20, fontWeight:FontWeight.w500)),
+                fontSize: MediaQuery.of(context).size.width*0.05, fontWeight:FontWeight.w500)),
             )),
             StreamBuilder(
                 stream: _streamBudgets.stream,
@@ -105,7 +105,7 @@ class _BudgetsState extends State<Budgets> {
                       return Text("aucuns donnees",
                           style: GoogleFonts.roboto(
                              color:isDark ? textDark : null,
-                              fontSize: 20, fontWeight: FontWeight.w500));
+                              fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w500));
                     }
                   } else {
                     return Container();
@@ -119,7 +119,7 @@ class _BudgetsState extends State<Budgets> {
         FloatingActionButton(
           backgroundColor: Colors.grey[200],
           onPressed: () => _showAddBudget(context,isDark ,backgroundDark , textDark),
-          child: const Icon(Icons.add, size: 33),
+          child: Icon(Icons.add, size:  MediaQuery.of(context).size.width*0.05),
         ),
         const SizedBox(
           height: 40,
@@ -156,7 +156,7 @@ class _BudgetsState extends State<Budgets> {
                   padding: const EdgeInsets.all(10),
                   child: Text("${item?.budgetAmount ?? 0} Fcfa",
                       style: GoogleFonts.roboto(
-                          fontSize: 20,
+                          fontSize:  MediaQuery.of(context).size.width*0.04,
                           fontWeight: FontWeight.w600,
                           color: const Color.fromARGB(255, 3, 224, 253))),
                 ),
@@ -193,77 +193,77 @@ class _BudgetsState extends State<Budgets> {
       case 01:
         return Text("Janvier $year",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.05,
                 fontWeight: FontWeight.w600,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 02:
         return Text("Fevrier $year",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.05,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 03:
         return Text("Mars  $year",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.05,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 04:
         return Text("Avril  $year",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.05,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 05:
         return Text("Mai  $year",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.05,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 06:
         return Text("Juin  $year",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize: MediaQuery.of(context).size.width*0.05,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 07:
         return Text("Juillet  $year",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.05,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 08:
         return Text("Aout  $year",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.05,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 09:
         return Text("Septembre  $year",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.05,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 10:
         return Text("Octobre  $year",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.05,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 11:
         return Text("Novembre  $year",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.05,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       case 12:
         return Text("Decembre  $year",
             style: GoogleFonts.roboto(
-                fontSize: 22,
+                fontSize:  MediaQuery.of(context).size.width*0.05,
                 fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 221, 221, 221)));
       default:
-        return Text("Non definit", style: GoogleFonts.roboto(fontSize: 18));
+        return Text("Non definit", style: GoogleFonts.roboto(fontSize:  MediaQuery.of(context).size.width*0.04));
     }
   }
 }

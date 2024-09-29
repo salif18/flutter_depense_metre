@@ -155,7 +155,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
                     // const Color.fromARGB(255, 60, 66, 122)
                     ),
                 child: Icon(Icons.arrow_back_ios_new_rounded,
-                    size: 24, color: Colors.grey[400]))),
+                    size:  MediaQuery.of(context).size.width*0.05, color: Colors.grey[400]))),
       ),
       body: Container(
         padding: const EdgeInsets.all(8),
@@ -200,7 +200,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
               padding: const EdgeInsets.all(8.0),
               child: Text("Nouvelles dépenses",
                   style: GoogleFonts.roboto(
-                      fontSize: 24,
+                      fontSize:  MediaQuery.of(context).size.width*0.04,
                       color: isDark ? textDark:Colors.black,
                       fontWeight: FontWeight.w500)),
             ),
@@ -209,7 +209,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
               child: Text(
                   "Enregistrer toutes vos dépenses effectuees de la journee",
                   style: GoogleFonts.aBeeZee(
-                      fontSize: 16,
+                      fontSize: MediaQuery.of(context).size.width*0.04,
                       color: isDark ? textDark:const Color.fromARGB(255, 46, 44, 44),
                       fontWeight: FontWeight.w300)),
             )
@@ -231,14 +231,14 @@ class _SaveExpensesState extends State<SaveExpenses> {
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
           hintText: "Montant",
-          hintStyle: GoogleFonts.roboto(fontSize: 20),
+          hintStyle: GoogleFonts.roboto(fontSize:  MediaQuery.of(context).size.width*0.04),
           fillColor: Colors.grey[100],
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
             borderSide: BorderSide.none,
           ),
-          prefixIcon: const Icon(Icons.monetization_on_outlined, size: 28),
+          prefixIcon: Icon(Icons.monetization_on_outlined, size:  MediaQuery.of(context).size.width*0.05),
         ),
       ),
     );
@@ -250,7 +250,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
       child: DropdownButtonFormField(
           hint: Text("Choisir une categories",
               style: GoogleFonts.roboto(
-                  fontSize: 20, fontWeight: FontWeight.w500)),
+                  fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w500)),
           value: selectedCategoryValue,
           validator: (value) {
             if (value!.isEmpty) {
@@ -270,7 +270,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide.none,
             ),
-            prefixIcon: const Icon(Icons.category_outlined, size: 28),
+            prefixIcon: Icon(Icons.category_outlined, size:  MediaQuery.of(context).size.width*0.05),
           ),
           items: modelCategories.map((categorie) {
             return DropdownMenuItem<String?>(
@@ -278,7 +278,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
               child: Text(
                 categorie.categoryName ?? "",
                 style: GoogleFonts.roboto(
-                  fontSize: 20,
+                  fontSize: MediaQuery.of(context).size.width*0.04,
                   color: Colors.black,
                 ),
               ),
@@ -302,15 +302,15 @@ class _SaveExpensesState extends State<SaveExpenses> {
         maxLines: null,
         decoration: InputDecoration(
           hintText: "Description",
-          hintStyle: GoogleFonts.roboto(fontSize: 20),
+          hintStyle: GoogleFonts.roboto(fontSize:  MediaQuery.of(context).size.width*0.04,),
           fillColor: Colors.grey[100],
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
             borderSide: BorderSide.none,
           ),
-          prefixIcon: const Icon(Icons.list_alt_rounded,
-              color: Color.fromARGB(255, 5, 5, 5), size: 28),
+          prefixIcon: Icon(Icons.list_alt_rounded,
+              color: Color.fromARGB(255, 5, 5, 5), size:  MediaQuery.of(context).size.width*0.05),
         ),
       ),
     );
@@ -329,8 +329,8 @@ class _SaveExpensesState extends State<SaveExpenses> {
             borderRadius: BorderRadius.circular(20),
             borderSide: BorderSide.none,
           ),
-          prefixIcon: const Icon(Icons.calendar_month_rounded,
-              color: Color.fromARGB(255, 255, 136, 128), size: 28),
+          prefixIcon: Icon(Icons.calendar_month_rounded,
+              color: Color.fromARGB(255, 255, 136, 128), size:  MediaQuery.of(context).size.width*0.05),
         ),
         hideDefaultSuffixIcon: true,
         mode: DateTimeFieldPickerMode.date,
@@ -354,11 +354,11 @@ class _SaveExpensesState extends State<SaveExpenses> {
             minimumSize: const Size(double.infinity, 60),
           ),
           onPressed: postToServerData,
-          icon: Icon(Icons.save_outlined, color: Colors.grey[100], size: 33),
+          icon: Icon(Icons.save_outlined, color: Colors.grey[100], size:  MediaQuery.of(context).size.width*0.05),
           label: Text(
             "Enregistrer",
             style: GoogleFonts.roboto(
-                fontSize: 20,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w500,
                 color: Colors.grey[100]),
           ),

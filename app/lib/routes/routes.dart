@@ -60,15 +60,15 @@ class _MainRoutesState extends State<MainRoutes> {
                     });
                   },
                   tabBackgroundColor: Colors.white,
-                  iconSize: 28,
+                  iconSize:  MediaQuery.of(context).size.width*0.06,
                   duration: const Duration(milliseconds: 600),
                   curve: Curves.easeInOut,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                   color: Colors.white,
-                  textSize: 20,
+                  textSize:  MediaQuery.of(context).size.width*0.04,
                   textStyle: GoogleFonts.roboto(
-                      fontSize: 20, fontWeight: FontWeight.w500),
+                      fontSize:  MediaQuery.of(context).size.width*0.04,fontWeight: FontWeight.w500),
                   style: GnavStyle.google,
                   gap: 10,
                   tabs: const [
@@ -87,7 +87,7 @@ class _MainRoutesState extends State<MainRoutes> {
               onPressed: () {
                 awesomeWidget(context);
               },
-              icon: const Icon(Icons.add, size: 33, color: Colors.white),
+              icon: Icon(Icons.add, size:  MediaQuery.of(context).size.width*0.06, color: Colors.white),
             ),
           ),
         ],
@@ -153,7 +153,7 @@ class _MainRoutesState extends State<MainRoutes> {
                 child: Text("Actions",
                     style: GoogleFonts.aBeeZee(
                         color: isDark ? textDark : null,
-                        fontSize: 20,
+                        fontSize:  MediaQuery.of(context).size.width*0.05,
                         fontWeight: FontWeight.w600))),
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
@@ -176,7 +176,7 @@ class _MainRoutesState extends State<MainRoutes> {
                       },
                       child: Text("Créer votre catégorie",
                           style: GoogleFonts.roboto(
-                              fontSize: 20,
+                              fontSize:  MediaQuery.of(context).size.width*0.05,
                               fontWeight: FontWeight.w500,
                               color: Colors.blue))),
                   const Divider(
@@ -189,7 +189,7 @@ class _MainRoutesState extends State<MainRoutes> {
                       },
                       child: Text("Entrer le budget du mois",
                           style: GoogleFonts.roboto(
-                              fontSize: 20,
+                              fontSize:  MediaQuery.of(context).size.width*0.05,
                               fontWeight: FontWeight.w500,
                               color: Colors.blue))),
                   const Divider(
@@ -201,7 +201,7 @@ class _MainRoutesState extends State<MainRoutes> {
                       },
                       child: Text("Enregistrer vos dépenses",
                           style: GoogleFonts.roboto(
-                              fontSize: 20,
+                              fontSize:  MediaQuery.of(context).size.width*0.05,
                               fontWeight: FontWeight.w500,
                               color: Colors.blue)))
                 ]),

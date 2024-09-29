@@ -119,8 +119,8 @@ class _AddBudgetState extends State<AddBudget> {
                           filled: true,
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
-                          prefixIcon: const Icon(Icons.monetization_on_outlined,
-                              size: 30)),
+                          prefixIcon: Icon(Icons.monetization_on_outlined,
+                              size:  MediaQuery.of(context).size.width*0.05,)),
                     ),
                   ),
                   Padding(
@@ -130,11 +130,11 @@ class _AddBudgetState extends State<AddBudget> {
                           style: ElevatedButton.styleFrom(
                               minimumSize: const Size(320, 50),
                               backgroundColor: const Color(0xFF292D4E)),
-                          icon: const Icon(Icons.save_rounded,
-                              size: 24, color: Colors.white),
+                          icon: Icon(Icons.save_rounded,
+                              size:  MediaQuery.of(context).size.width*0.05, color: Colors.white),
                           label: Text("Ajouter",
                               style: GoogleFonts.roboto(
-                                  fontSize: 20, color: Colors.white))))
+                                  fontSize:  MediaQuery.of(context).size.width*0.04, color: Colors.white))))
                 ],
               )),
         ),
@@ -152,7 +152,7 @@ class _AddBudgetState extends State<AddBudget> {
             padding: const EdgeInsets.all(8.0),
             child: Text("Budget du mois",
                 style: GoogleFonts.roboto(
-                    fontSize: 24,
+                    fontSize:  MediaQuery.of(context).size.width*0.05,
                     color: isDark ? textDark:Colors.black,
                     fontWeight: FontWeight.w500)),
           ),
@@ -161,7 +161,7 @@ class _AddBudgetState extends State<AddBudget> {
             child: Text(
                 "Ajouter le budget du mois pour pouvoir enregistrer vos depenses du mois en cours",
                 style: GoogleFonts.aBeeZee(
-                    fontSize: 16,
+                    fontSize:  MediaQuery.of(context).size.width*0.04,
                     color:  isDark ? textDark:Colors.black,
                     fontWeight: FontWeight.w300)),
           )

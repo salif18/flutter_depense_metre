@@ -80,7 +80,7 @@ class _CreateCategoriesState extends State<CreateCategories> {
                   child: Text("Personnaliser vos catégories",
                       style: GoogleFonts.roboto(
                           color: isDark ? textDark : null,
-                          fontSize: 20,
+                          fontSize:  MediaQuery.of(context).size.width*0.05,
                           fontWeight: FontWeight.w300))),
               _categorieForm(context),
               const SizedBox(height: 20),
@@ -109,7 +109,7 @@ class _CreateCategoriesState extends State<CreateCategories> {
               filled: true,
               hintText: "Nom de la catégorie",
               hintStyle: GoogleFonts.roboto(
-                fontSize: 18,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w400,
                 color: const Color.fromARGB(255, 38, 38, 85),
               ),
@@ -117,10 +117,10 @@ class _CreateCategoriesState extends State<CreateCategories> {
                 borderRadius: BorderRadius.circular(20),
                 borderSide: BorderSide.none,
               ),
-              prefixIcon: const Icon(
+              prefixIcon: Icon(
                 Icons.category_outlined,
                 color: Color.fromARGB(255, 38, 38, 85),
-                size: 23,
+                size:  MediaQuery.of(context).size.width*0.05,
               ),
             )));
   }
@@ -135,6 +135,6 @@ class _CreateCategoriesState extends State<CreateCategories> {
             onPressed: sendCategorie,
             child: Text("Sauvegarder",
                 style: GoogleFonts.roboto(
-                    fontSize: 20, color: Colors.grey[200]))));
+                    fontSize:  MediaQuery.of(context).size.width*0.04, color: Colors.grey[200]))));
   }
 }

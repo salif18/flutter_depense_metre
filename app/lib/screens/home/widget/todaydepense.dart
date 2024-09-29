@@ -76,14 +76,14 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                       padding: const EdgeInsets.all(10),
                       child: Row(
                         children: [
-                          const Icon(Icons.calendar_month_rounded,
-                              color: Colors.red, size: 30),
+                           Icon(Icons.calendar_month_rounded,
+                              color: Colors.red, size:MediaQuery.of(context).size.width*0.06),
                           const SizedBox(width: 10),
                           Text(
                             "$day".toLowerCase(),
                             style: GoogleFonts.roboto(
                                 color: isDark ? textDark : null,
-                                fontSize: 20,
+                                fontSize: MediaQuery.of(context).size.width*0.04,
                                 fontWeight: FontWeight.w600),
                           ),
                         ],
@@ -99,7 +99,7 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                             "Total",
                             style: GoogleFonts.roboto(
                                 color: isDark ? textDark : null,
-                                fontSize: 20,
+                                fontSize:  MediaQuery.of(context).size.width*0.04,
                                 fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(
@@ -109,12 +109,12 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                             "$totalDay",
                             style: GoogleFonts.roboto(
                                 color: isDark ? Colors.red : Colors.black,
-                                fontSize: 20,
+                                fontSize:  MediaQuery.of(context).size.width*0.04,
                                 fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(width: 10),
-                          const Icon(Icons.monetization_on_rounded,
-                              color: Colors.amber, size: 30),
+                          Icon(Icons.monetization_on_rounded,
+                              color: Colors.amber, size: MediaQuery.of(context).size.width*0.06),
                         ],
                       )),
                 ),
@@ -131,20 +131,20 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                     List<ModelExpenses> expenseStream = snapshot.data ?? [];
                     if (expenseStream.isEmpty) {
                       return Container(
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(15),
                         child: Column(
                           children: [
                             Text(
                               "Salut n'oublier pas d'insérer vos dépenses du jours",
                               style: GoogleFonts.roboto(
-                                  fontSize: 19,
+                                  fontSize:  MediaQuery.of(context).size.width*0.04,
                                   fontWeight: FontWeight.w300,
                                   color: isDark ? textDark : Colors.black),
                             ),
                             const SizedBox(height: 20),
                             ElevatedButton(
                               onPressed: () => _showAddExpenses(context),
-                              child: const Icon(Icons.add, size: 33),
+                              child: Icon(Icons.add, size:  MediaQuery.of(context).size.width*0.06),
                             )
                           ],
                         ),
@@ -166,7 +166,7 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                         child: Text(
                       "aucunes donnees",
                       style: GoogleFonts.roboto(
-                        fontSize: 19,
+                        fontSize:  MediaQuery.of(context).size.width*0.04,
                         fontWeight: FontWeight.w300,
                         color: isDark ? textDark : null,
                       ),
@@ -198,7 +198,7 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                 Text(category?["name_categories"] ?? "",
                     style: GoogleFonts.roboto(
                         color: isDark ? textDark : null,
-                        fontSize: 20,
+                        fontSize:  MediaQuery.of(context).size.width*0.04,
                         fontWeight: FontWeight.w400)),
               ],
             ),
@@ -207,13 +207,13 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                 Text("${expense.amount}",
                     style: GoogleFonts.roboto(
                         color: isDark ? Colors.green : Colors.red,
-                        fontSize: 20,
+                        fontSize:  MediaQuery.of(context).size.width*0.04,
                         fontWeight: FontWeight.w600)),
                 const SizedBox(
                   width: 10,
                 ),
-                const Icon(Icons.monetization_on_sharp,
-                    size: 30, color: Colors.amber)
+                 Icon(Icons.monetization_on_sharp,
+                    size: MediaQuery.of(context).size.width*0.06, color: Colors.amber)
               ],
             ),
           ],

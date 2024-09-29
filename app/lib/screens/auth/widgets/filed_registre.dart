@@ -119,7 +119,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
       child: Text(
         "Renseignez les informations demandées ",
         style: GoogleFonts.aBeeZee(
-          fontSize: 17,
+          fontSize: MediaQuery.of(context).size.width*0.04,
           fontWeight: FontWeight.w500,
         ),
       ),
@@ -143,15 +143,15 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
           filled: true,
           hintText: "Votre pseudo",
           hintStyle: GoogleFonts.roboto(
-            fontSize: 18,
+            fontSize: MediaQuery.of(context).size.width*0.04,
             fontWeight: FontWeight.w400,
             color: const Color.fromARGB(255, 38, 38, 85),
           ),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide.none),
-          prefixIcon: const Icon(Icons.person_2_outlined,
-              color: Color.fromARGB(255, 38, 38, 85), size: 28),
+          prefixIcon: Icon(Icons.person_2_outlined,
+              color: Color.fromARGB(255, 38, 38, 85), size:MediaQuery.of(context).size.width*0.06),
         ),
       ),
     );
@@ -161,7 +161,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: DropdownButtonFormField(
-        hint: Text("(+ Indicatif)", style: GoogleFonts.roboto(fontSize: 16)),
+        hint: Text("(+ Indicatif)", style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04,)),
         isExpanded: true,
         validator: (value) {
           if (value!.isEmpty) {
@@ -179,7 +179,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
                 Text(
                   '${country?.name}',
                   style: GoogleFonts.roboto(
-                    fontSize: 16,
+                    fontSize: MediaQuery.of(context).size.width*0.04,
                     color: Colors.black,
                   ),
                 ),
@@ -187,7 +187,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
                 Text(
                   "${country?.dialCode}",
                   style: GoogleFonts.roboto(
-                    fontSize: 16,
+                    fontSize: MediaQuery.of(context).size.width*0.04,
                     color: Colors.black,
                   ),
                 )
@@ -229,15 +229,15 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
           filled: true,
           hintText: "Numéro avec indicatif",
           hintStyle: GoogleFonts.roboto(
-            fontSize: 18,
+            fontSize: MediaQuery.of(context).size.width*0.04,
             fontWeight: FontWeight.w400,
             color: const Color.fromARGB(255, 38, 38, 85),
           ),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide.none),
-          prefixIcon: const Icon(Icons.phone_android_rounded,
-              color: Color.fromARGB(255, 38, 38, 85), size: 28),
+          prefixIcon: Icon(Icons.phone_android_rounded,
+              color: Color.fromARGB(255, 38, 38, 85), size: MediaQuery.of(context).size.width*0.06),
         ),
       ),
     );
@@ -260,15 +260,15 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
           filled: true,
           hintText: "Votre email",
           hintStyle: GoogleFonts.roboto(
-            fontSize: 18,
+            fontSize: MediaQuery.of(context).size.width*0.04,
             fontWeight: FontWeight.w400,
             color: const Color.fromARGB(255, 38, 38, 85),
           ),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide.none),
-          prefixIcon: const Icon(Icons.mail_outline,
-              color: Color.fromARGB(255, 38, 38, 85), size: 28),
+          prefixIcon: Icon(Icons.mail_outline,
+              color: Color.fromARGB(255, 38, 38, 85), size: MediaQuery.of(context).size.width*0.06),
         ),
       ),
     );
@@ -292,15 +292,15 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
             filled: true,
             hintText: "Votre mot de passe",
             hintStyle: GoogleFonts.roboto(
-              fontSize: 18,
+              fontSize: MediaQuery.of(context).size.width*0.04,
               fontWeight: FontWeight.w400,
               color: const Color.fromARGB(255, 38, 38, 85),
             ),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
                 borderSide: BorderSide.none),
-            prefixIcon: const Icon(Icons.key,
-                color: Color.fromARGB(255, 38, 38, 85), size: 28),
+            prefixIcon: Icon(Icons.key,
+                color: Color.fromARGB(255, 38, 38, 85), size: MediaQuery.of(context).size.width*0.06),
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
@@ -328,7 +328,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
               backgroundColor: const Color.fromARGB(255, 111, 116, 161)),
           child: Text("Créer",
               style: GoogleFonts.roboto(
-                  fontSize: 18,
+                  fontSize: MediaQuery.of(context).size.width*0.04,
                   fontWeight: FontWeight.w500,
                   color: Colors.white))),
     );
@@ -339,7 +339,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
       padding: const EdgeInsets.all(8.0),
       child: Text("Ou",
           style: GoogleFonts.aBeeZee(
-              fontSize: 18,
+              fontSize: MediaQuery.of(context).size.width*0.04,
               color: const Color.fromARGB(255, 38, 38, 85),
               fontWeight: FontWeight.bold)),
     );
@@ -394,7 +394,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
     return Padding(
       padding: const EdgeInsets.all(4.0),
       child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text("Déjà un de compte ? -", style: GoogleFonts.roboto(fontSize: 18)),
+        Text("Déjà un de compte ? -", style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04,)),
         TextButton(
             onPressed: () {
               Navigator.push(context,
@@ -403,7 +403,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
             child: Text(
               "Sign",
               style: GoogleFonts.roboto(
-                  fontSize: 18,
+                  fontSize: MediaQuery.of(context).size.width*0.04,
                   fontWeight: FontWeight.bold,
                   color: Colors.deepPurple[400]),
             ))

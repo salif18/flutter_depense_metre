@@ -15,9 +15,9 @@ class MessageTopWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,  
                       children: [
                         Text("Aw", 
-                          style: GoogleFonts.aBeeZee(fontSize: 25,color:Colors.white)),
+                          style: GoogleFonts.aBeeZee(fontSize: MediaQuery.of(context).size.width*0.06,color:Colors.white)),
                           Text('Bissimilah !',
-                          style: GoogleFonts.aBeeZee(fontSize: 25,color:Colors.white)
+                          style: GoogleFonts.aBeeZee(fontSize: MediaQuery.of(context).size.width*0.06,color:Colors.white)
                           ),
                       ],
                     ),

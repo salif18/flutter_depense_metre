@@ -66,9 +66,9 @@ class _HomeState extends State<Home> {
                   delegate: SliverChildListDelegate(
                     [
                       Padding(
-                        padding: EdgeInsets.only(top:MediaQuery.of(context).padding.top *1.2),
+                        padding: EdgeInsets.all(8),
                         child: Container(
-                          padding:const EdgeInsets.only(left:20,right: 20, top:20),
+                          padding:const EdgeInsets.only(left:20,right: 20),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -78,7 +78,7 @@ class _HomeState extends State<Home> {
                                   Text("Salut !",
                                       style: GoogleFonts.roboto(
                                         color:isDark ? textDark : null,
-                                        fontSize: 24)),
+                                        fontSize: MediaQuery.of(context).size.width*0.06)),
                                   Consumer<UserInfosProvider>(
                                       builder: (context, provider, child) {
                                     return FutureBuilder<ModelUser?>(
@@ -88,7 +88,7 @@ class _HomeState extends State<Home> {
                                           final profil = snapshot.data!;
                                           return Text("${profil.name},",
                                               style: GoogleFonts.roboto(
-                                                  fontSize: 24,
+                                                  fontSize: MediaQuery.of(context).size.width*0.05,
                                                   fontWeight: FontWeight.w900,
                                                   color: isDark ? textDark : const Color.fromARGB(
                                                       255, 34, 12, 49)));
@@ -109,11 +109,11 @@ class _HomeState extends State<Home> {
                                       },
                                       icon:Icon(Icons.account_balance_sharp,
                                        color:isDark ? textDark : null,
-                                          size: 30)),
+                                          size: MediaQuery.of(context).size.width*0.06)),
                                   Text("budgets",
                                       style: GoogleFonts.aBeeZee(
                                          color:isDark ? textDark : null,
-                                          fontSize: 18,
+                                          fontSize: MediaQuery.of(context).size.width*0.04,
                                           fontWeight: FontWeight.w600))
                                 ],
                               ),
@@ -167,7 +167,7 @@ class _HomeState extends State<Home> {
                                       "Aujourd'hui",
                                       style: GoogleFonts.aBeeZee(
                                           fontWeight: FontWeight.w600,
-                                          fontSize: 20),
+                                          fontSize: MediaQuery.of(context).size.width*0.04),
                                     ),
                                   ),
                                   Tab(
@@ -175,7 +175,7 @@ class _HomeState extends State<Home> {
                                       "Mois",
                                       style: GoogleFonts.aBeeZee(
                                           fontWeight: FontWeight.w600,
-                                          fontSize: 20),
+                                          fontSize: MediaQuery.of(context).size.width*0.04),
                                     ),
                                   )
                                 ],

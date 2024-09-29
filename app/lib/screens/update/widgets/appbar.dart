@@ -24,7 +24,7 @@ class UpdateAppBar extends StatelessWidget implements PreferredSizeWidget {
        title: Text("Modification de compte",
        style:GoogleFonts.roboto(
         color:isDark ? textDark : null,
-        fontSize: 20, fontWeight: FontWeight.w500,) ,),
+        fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w500,) ,),
     );
   }
 }

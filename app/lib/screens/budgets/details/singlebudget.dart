@@ -44,12 +44,12 @@ class _SingleBudgetState extends State<SingleBudget> {
           children: [
             Text("Vos Transactions",
                 style: GoogleFonts.roboto(
-                    fontSize: 20, 
+                    fontSize:  MediaQuery.of(context).size.width*0.05, 
                     fontWeight: FontWeight.w500,
                     color:Colors.grey[100]
                     )),
             const SizedBox(width: 10),
-            Icon(Icons.sync_alt, size: 24,color:Colors.grey[100])
+            Icon(Icons.sync_alt, size:  MediaQuery.of(context).size.width*0.05,color:Colors.grey[100])
           ],
         ),
       ),
@@ -62,7 +62,7 @@ class _SingleBudgetState extends State<SingleBudget> {
               child: Text("Vos differentes transactions sur ce budget du mois",
               style:GoogleFonts.roboto(
                 color:isDark ? textDark :null,
-                fontSize:20,fontWeight:FontWeight.w400))),
+                fontSize: MediaQuery.of(context).size.width*0.04,fontWeight:FontWeight.w400))),
           ),
           if (_receivedData?.depense != null)
             Expanded(
@@ -81,7 +81,7 @@ class _SingleBudgetState extends State<SingleBudget> {
               child: Center(
                 child: Text("Aucunes dépenses effectuées",
                     style: GoogleFonts.roboto(
-                        fontSize: 20,
+                        fontSize:  MediaQuery.of(context).size.width*0.04,
                         color: const Color.fromARGB(255, 109, 109, 109))),
               ),
             ),
@@ -109,12 +109,12 @@ class _SingleBudgetState extends State<SingleBudget> {
                 children: [
                   Text("${item?.dateExpenses}",
                       style: GoogleFonts.roboto(
-                          fontSize: 20,
+                          fontSize:  MediaQuery.of(context).size.width*0.05,
                           fontWeight: FontWeight.w600,
                           color: Colors.grey[300])),
                   Text("${item?.description ?? "Aucunes notes "}",
                       style: GoogleFonts.aBeeZee(
-                          fontSize: 18,
+                          fontSize:  MediaQuery.of(context).size.width*0.04,
                           fontWeight: FontWeight.w300,
                           color: const Color.fromARGB(255, 3, 224, 253))),
                 ],
@@ -124,12 +124,12 @@ class _SingleBudgetState extends State<SingleBudget> {
               children: [
                 Text("${item?.amount ?? 0}",
                     style: GoogleFonts.roboto(
-                        fontSize: 20,
+                        fontSize:  MediaQuery.of(context).size.width*0.04,
                         fontWeight: FontWeight.w600,
                         color: Colors.amber)),
                 const SizedBox(width: 10),
-                const Icon(Icons.monetization_on_rounded,
-                    color: Colors.amber, size: 24)
+                Icon(Icons.monetization_on_rounded,
+                    color: Colors.amber, size:  MediaQuery.of(context).size.width*0.05)
               ],
             )
           ],

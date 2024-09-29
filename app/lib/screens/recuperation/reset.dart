@@ -107,7 +107,7 @@ class _ResetTokenState extends State<ResetToken> {
             child: Text("Réinitialiser le mot de passe",
                 style: GoogleFonts.roboto(
                   color:isDark ? textDark :null,
-                    fontSize: 23, fontWeight: FontWeight.w600)),
+                    fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w600)),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -115,7 +115,7 @@ class _ResetTokenState extends State<ResetToken> {
                 "Veuillez entrer les bonnes informations pour pouvoir nous aider à réinitialiser votre mot de passe",
                 style: GoogleFonts.roboto(
                   color:isDark ? textDark :null,
-                    fontSize: 16, fontWeight: FontWeight.w300)),
+                    fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w300)),
           ),
         ],
       ),
@@ -135,12 +135,12 @@ class _ResetTokenState extends State<ResetToken> {
         },
         keyboardType: TextInputType.phone,
         decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.phone_android_rounded, size: 24),
+          prefixIcon: Icon(Icons.phone_android_rounded, size:  MediaQuery.of(context).size.width*0.05),
           filled: true,
           fillColor: Colors.grey[100],
           hintText: "Numéro",
           hintStyle:
-              GoogleFonts.aBeeZee(fontSize: 16, fontWeight: FontWeight.w500),
+              GoogleFonts.aBeeZee(fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w500),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         ),
       ),
@@ -160,12 +160,12 @@ class _ResetTokenState extends State<ResetToken> {
         },
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.mail_outline, size: 24),
+          prefixIcon: Icon(Icons.mail_outline, size:  MediaQuery.of(context).size.width*0.05,),
           filled: true,
           fillColor: Colors.grey[100],
           hintText: "Email",
           hintStyle:
-              GoogleFonts.aBeeZee(fontSize: 16, fontWeight: FontWeight.w500),
+              GoogleFonts.aBeeZee(fontSize: MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w500),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         ),
       ),
@@ -180,7 +180,7 @@ class _ResetTokenState extends State<ResetToken> {
         onPressed: () => _send(context),
         child: Text("Envoyer",
             style: GoogleFonts.aBeeZee(
-                fontSize: 20,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w500,
                 color: Colors.white)));
   }

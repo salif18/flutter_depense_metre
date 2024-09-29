@@ -18,7 +18,7 @@ class AnalyseGeneral extends StatelessWidget {
         children: [
           Container(
             height: 275,
-            width: 180,
+            width:  MediaQuery.of(context).size.width*0.45,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -50,7 +50,7 @@ class AnalyseGeneral extends StatelessWidget {
                               center: Text(
                                 "${item?.percent ?? 0}%",
                                 style: GoogleFonts.roboto(
-                                  fontSize: 25,
+                                  fontSize:  MediaQuery.of(context).size.width*0.06,
                                   color: double.parse(item?.percent! ?? "0.0") >= 80 ? Colors.red : Colors.blue,
                                 ),
                               ),
@@ -61,7 +61,7 @@ class AnalyseGeneral extends StatelessWidget {
                             child: Text(
                               "De Consommation du budget",
                               style: GoogleFonts.roboto(
-                                fontSize: 18,
+                                fontSize:  MediaQuery.of(context).size.width*0.04,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.grey,
                               ),
@@ -75,12 +75,12 @@ class AnalyseGeneral extends StatelessWidget {
                                   Text(
                                     "${item?.budgetAmount ?? 0}",
                                     style: GoogleFonts.roboto(
-                                      fontSize: 24,
+                                      fontSize:  MediaQuery.of(context).size.width*0.05,
                                       fontWeight: FontWeight.w600,
                                       color: const Color.fromARGB(255, 255, 5, 5),
                                     ),
                                   ),
-                                  const Expanded(child: Icon(Icons.monetization_on,color:Colors.blueAccent, size:33))
+                                Expanded(child: Icon(Icons.monetization_on,color:Colors.blueAccent, size: MediaQuery.of(context).size.width*0.06))
                                 ],
                               ),
                             ),
@@ -105,7 +105,7 @@ class AnalyseGeneral extends StatelessWidget {
                               center: Text(
                                 "0%",
                                 style: GoogleFonts.roboto(
-                                  fontSize: 25,
+                                  fontSize:  MediaQuery.of(context).size.width*0.06,
                                   color: Colors.blue,
                                 ),
                               ),
@@ -116,7 +116,7 @@ class AnalyseGeneral extends StatelessWidget {
                             child: Text(
                               "De Consommation du budget",
                               style: GoogleFonts.roboto(
-                                fontSize: 18,
+                                fontSize:  MediaQuery.of(context).size.width*0.04,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.grey,
                               ),
@@ -130,12 +130,12 @@ class AnalyseGeneral extends StatelessWidget {
                                   Text(
                                     "0",
                                     style: GoogleFonts.roboto(
-                                      fontSize: 24,
+                                      fontSize:  MediaQuery.of(context).size.width*0.05,
                                       fontWeight: FontWeight.w600,
                                       color: const Color.fromARGB(255, 255, 5, 5),
                                     ),
                                   ),
-                                  const Expanded(child: Icon(Icons.monetization_on,color:Colors.blueAccent, size:33))
+                                  Expanded(child: Icon(Icons.monetization_on,color:Colors.blueAccent, size: MediaQuery.of(context).size.width*0.06,))
                                 ],
                               ),
                             ),
@@ -153,7 +153,7 @@ class AnalyseGeneral extends StatelessWidget {
             children: [
               Container(
                 height: 130.5,
-                width: 180,
+                width:  MediaQuery.of(context).size.width*0.4,
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -180,7 +180,7 @@ class AnalyseGeneral extends StatelessWidget {
                                 child: Text(
                                   "Le plus investis",
                                   style: GoogleFonts.roboto(
-                                    fontSize: 18,
+                                    fontSize:  MediaQuery.of(context).size.width*0.04,
                                     color: const Color.fromARGB(
                                         255, 221, 221, 221),
                                   ),
@@ -200,7 +200,7 @@ class AnalyseGeneral extends StatelessWidget {
                                     child: Text(
                                       "${category?['name_categories'] ?? ""}",
                                       style: GoogleFonts.roboto(
-                                        fontSize: 16,
+                                        fontSize:  MediaQuery.of(context).size.width*0.04,
                                         color: Colors.white,
                                       ),
                                       overflow: TextOverflow.ellipsis,
@@ -216,13 +216,13 @@ class AnalyseGeneral extends StatelessWidget {
                                       child: Text(
                                         "${item?.totalAmount ?? 0}",
                                         style: GoogleFonts.roboto(
-                                          fontSize: 20,
+                                          fontSize:  MediaQuery.of(context).size.width*0.04,
                                           fontWeight: FontWeight.w600,
                                           color: Colors.white,
                                         ),
                                       ),
                                     ),
-                                    Icon(Icons.monetization_on,color:Colors.grey[200], size:33)
+                                    Icon(Icons.monetization_on,color:Colors.grey[200], size: MediaQuery.of(context).size.width*0.06)
                                   ],
                                 ),
                               ),
@@ -230,7 +230,7 @@ class AnalyseGeneral extends StatelessWidget {
                           );
                         } else {
                           return Container(
-                            child: Center(child: Text("Pas de donnees enregistre",style: GoogleFonts.roboto(fontSize:16),)),
+                            child: Center(child: Text("Pas de donnees enregistre",style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04),)),
                           );
                         }
                       },
@@ -241,7 +241,7 @@ class AnalyseGeneral extends StatelessWidget {
               const SizedBox(height: 10),
               Container(
                 height: 130.5,
-                width: 180,
+                width:  MediaQuery.of(context).size.width*0.4,
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -261,11 +261,11 @@ class AnalyseGeneral extends StatelessWidget {
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Padding(
+                              Padding(
                                 padding: EdgeInsets.only(top: 8, bottom: 2),
                                 child: Icon(
                                   Icons.token,
-                                  size: 30,
+                                  size:  MediaQuery.of(context).size.width*0.06,
                                   color: Colors.white,
                                 ),
                               ),
@@ -275,7 +275,7 @@ class AnalyseGeneral extends StatelessWidget {
                                 child: Text(
                                   "Epargnes",
                                   style: GoogleFonts.roboto(
-                                    fontSize: 18,
+                                    fontSize:  MediaQuery.of(context).size.width*0.04,
                                     color: const Color.fromARGB(
                                         255, 221, 221, 221),
                                   ),
@@ -288,12 +288,12 @@ class AnalyseGeneral extends StatelessWidget {
                                     Text(
                                       "${item?.epargnes ?? 0}",
                                       style: GoogleFonts.roboto(
-                                        fontSize: 20,
+                                        fontSize:  MediaQuery.of(context).size.width*0.04,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.white,
                                       ),
                                     ),
-                                    Expanded(child: Icon(Icons.monetization_on, color:Colors.grey[200],size:33))
+                                    Expanded(child: Icon(Icons.monetization_on, color:Colors.grey[200],size: MediaQuery.of(context).size.width*0.06))
                                   ],
                                 ),
                               ),

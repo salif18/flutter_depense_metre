@@ -116,7 +116,7 @@ class _ValidationPasswordState extends State<ValidationPassword> {
             child: Text("Validation le mot de passe",
                 style: GoogleFonts.roboto(
                     color: isDark ? textDark : null,
-                    fontSize: 23,
+                    fontSize:  MediaQuery.of(context).size.width*0.05,
                     fontWeight: FontWeight.w600)),
           ),
           Padding(
@@ -125,7 +125,7 @@ class _ValidationPasswordState extends State<ValidationPassword> {
                 "Veuillez entrer les bonnes informations pour pouvoir valider le nouveau mot de passe",
                 style: GoogleFonts.roboto(
                     color: isDark ? textDark : null,
-                    fontSize: 16,
+                    fontSize:  MediaQuery.of(context).size.width*0.04,
                     fontWeight: FontWeight.w300)),
           ),
         ],
@@ -146,12 +146,12 @@ class _ValidationPasswordState extends State<ValidationPassword> {
         },
         keyboardType: TextInputType.visiblePassword,
         decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.key_rounded, size: 24),
+          prefixIcon: Icon(Icons.key_rounded, size:  MediaQuery.of(context).size.width*0.05,),
           filled: true,
           fillColor: Colors.grey[100],
           labelText: "Nouveau mot de passe",
           labelStyle:
-              GoogleFonts.aBeeZee(fontSize: 18, fontWeight: FontWeight.w500),
+              GoogleFonts.aBeeZee(fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w500),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         ),
       ),
@@ -171,12 +171,12 @@ class _ValidationPasswordState extends State<ValidationPassword> {
         },
         keyboardType: TextInputType.visiblePassword,
         decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.lock_outline, size: 24),
+          prefixIcon: Icon(Icons.lock_outline, size:  MediaQuery.of(context).size.width*0.05,),
           filled: true,
           fillColor: Colors.grey[100],
           labelText: "Confirmer",
           labelStyle:
-              GoogleFonts.aBeeZee(fontSize: 18, fontWeight: FontWeight.w500),
+              GoogleFonts.aBeeZee(fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w500),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         ),
       ),
@@ -191,7 +191,7 @@ class _ValidationPasswordState extends State<ValidationPassword> {
             child: Text("Entrez les 4 chiffres envoyés sur votre e-mail",
                 style: GoogleFonts.roboto(
                     color: isDark ? textDark : null,
-                    fontSize: 18,
+                    fontSize:  MediaQuery.of(context).size.width*0.04,
                     fontWeight: FontWeight.w400))));
   }
 
@@ -233,7 +233,7 @@ class _ValidationPasswordState extends State<ValidationPassword> {
         onPressed: () => _send(context),
         child: Text("Envoyer",
             style: GoogleFonts.aBeeZee(
-                fontSize: 20,
+                fontSize:  MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.w500,
                 color: Colors.white)));
   }

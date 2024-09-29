@@ -77,12 +77,12 @@ class _SettingsState extends State<Settings> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Icon(Icons.notifications_none_outlined,
-                      color: isDark ? Colors.white : null, size: 30),
+                      color: isDark ? Colors.white : null, size:  MediaQuery.of(context).size.width*0.05),
                   const SizedBox(width: 10),
                   Text("Notification",
                       style: GoogleFonts.aBeeZee(
                           color: isDark ? Colors.white : null,
-                          fontSize: 20,
+                          fontSize:  MediaQuery.of(context).size.width*0.04,
                           fontWeight: FontWeight.w300))
                 ],
               ),
@@ -113,12 +113,12 @@ class _SettingsState extends State<Settings> {
                 children: [
                 Icon(Icons.wb_sunny_outlined,
                   color: isDark ? Colors.white : null,
-                      size: 30, ),
+                      size:  MediaQuery.of(context).size.width*0.05 ),
                   const SizedBox(width: 10),
                   Text(isDark ? "Thème sombre" : "Thème clair",
                       style: GoogleFonts.aBeeZee(
                           color: isDark ? Colors.white : null,
-                          fontSize: 20,
+                          fontSize: MediaQuery.of(context).size.width*0.04,
                           fontWeight: FontWeight.w300))
                 ],
               ),
@@ -162,12 +162,12 @@ class _SettingsState extends State<Settings> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Icon(Icons.sync_lock_rounded,
-                        color: isDark ? textDark : null, size: 30),
+                        color: isDark ? textDark : null, size:  MediaQuery.of(context).size.width*0.05),
                     const SizedBox(width: 10),
                     Text("Changer mot de passe",
                         style: GoogleFonts.aBeeZee(
                             color: isDark ? textDark : null,
-                            fontSize: 20,
+                            fontSize:  MediaQuery.of(context).size.width*0.04,
                             fontWeight: FontWeight.w300))
                   ],
                 ),
@@ -175,7 +175,7 @@ class _SettingsState extends State<Settings> {
             ),
             Expanded(
                 child: Icon(Icons.arrow_forward_ios_rounded,
-                    color: isDark ? textDark : null, size: 24))
+                    color: isDark ? textDark : null, size:  MediaQuery.of(context).size.width*0.05))
           ],
         ),
       ),
@@ -202,12 +202,12 @@ class _SettingsState extends State<Settings> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.help_outline_outlined, color: isDark ? textDark : null, size: 30),
+                    Icon(Icons.help_outline_outlined, color: isDark ? textDark : null, size:  MediaQuery.of(context).size.width*0.05),
                     const SizedBox(width: 10),
                     Text("A propos",
                         style: GoogleFonts.aBeeZee(
                             color: isDark ? textDark : null,
-                            fontSize: 20,
+                            fontSize:  MediaQuery.of(context).size.width*0.04,
                             fontWeight: FontWeight.w300))
                   ],
                 ),
@@ -215,7 +215,7 @@ class _SettingsState extends State<Settings> {
             ),
             Expanded(
                 child: Icon(Icons.arrow_forward_ios_rounded,
-                    color: isDark ? textDark : null, size: 24))
+                    color: isDark ? textDark : null, size:  MediaQuery.of(context).size.width*0.05))
           ],
         ),
       ),

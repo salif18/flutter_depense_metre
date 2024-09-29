@@ -50,13 +50,13 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                               return Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  const Icon(Icons.balance_rounded, size:40, color:Color.fromARGB(255, 161, 161, 161)),
+                                  Icon(Icons.balance_rounded, size: MediaQuery.of(context).size.width*0.06, color:Color.fromARGB(255, 161, 161, 161)),
                                   const SizedBox(width: 10),
                                   Text(
                                     "Balance de ${statsYear?.year ?? 0}",
                                     style: GoogleFonts.roboto(
                                       
-                                      fontSize: 23,
+                                      fontSize:  MediaQuery.of(context).size.width*0.05,
                                       fontWeight: FontWeight.w500,
                                       color:
                                           isDark ? textDark:const Color.fromARGB(255, 161, 161, 161),
@@ -87,7 +87,7 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                             return Text(
                                   "${statsYear?.totalExpenses ?? 0} Fcfa",
                                   style: GoogleFonts.roboto(
-                                    fontSize: 30,
+                                    fontSize:  MediaQuery.of(context).size.width*0.05,
                                     fontWeight: FontWeight.w500,
                                     color: isDark ? Colors.red :const Color.fromARGB(255, 18, 1, 65),
                                   ),

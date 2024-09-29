@@ -96,7 +96,7 @@ class _MyStatsState extends State<MyStats> {
                           "Mensuelle",
                           style: GoogleFonts.roboto(
                             color:isDark ? textDark : null,
-                              fontSize: 24, fontWeight: FontWeight.w500),
+                              fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w500),
                         )
                       ],
                     ),
@@ -113,7 +113,7 @@ class _MyStatsState extends State<MyStats> {
                           Text("Hebdomadaire",
                               style: GoogleFonts.roboto(
                                 color:isDark ? textDark : null,
-                                  fontSize: 23, fontWeight: FontWeight.w500)),
+                                  fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w500)),
                         ],
                       )),
                   const BarChartWidget(),
@@ -125,7 +125,7 @@ class _MyStatsState extends State<MyStats> {
                           Text("Etude detaillée du budget",
                               style: GoogleFonts.roboto(
                                 color:isDark ? textDark : null,
-                                  fontSize: 23, fontWeight: FontWeight.w500)),
+                                  fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w500)),
                         ],
                       )),
                   const PieChartWidget(),
@@ -137,7 +137,7 @@ class _MyStatsState extends State<MyStats> {
                           Text("Statistics annuel",
                               style: GoogleFonts.roboto(
                                 color:isDark ? textDark : null,
-                                  fontSize: 23, fontWeight: FontWeight.w500)),
+                                  fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w500)),
                         ],
                       )),
                   const LineChartWidget(),

@@ -49,11 +49,11 @@ class MyProfilPictureInfos extends StatelessWidget {
                             Text(profil?.name ?? "",
                                 style: GoogleFonts.aBeeZee(
                                   color: isDark ? textDark : null,
-                                    fontSize: 24, fontWeight: FontWeight.w600)),
+                                    fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w600)),
                             Text(profil?.email ?? "",
                                 style: GoogleFonts.roboto(
                                    color: isDark ? textDark :Colors.grey ,
-                                    fontSize: 19))
+                                    fontSize:  MediaQuery.of(context).size.width*0.04,))
                           ],
                         ),
                       )
@@ -63,7 +63,7 @@ class MyProfilPictureInfos extends StatelessWidget {
               );
             } else {
               return Text('Aucune donnée disponible',
-                  style: GoogleFonts.roboto(fontSize: 19, color: Colors.grey));
+                  style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04, color: Colors.grey));
             }
           });
     });

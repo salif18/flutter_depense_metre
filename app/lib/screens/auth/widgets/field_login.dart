@@ -117,7 +117,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
       child: Text(
         "Renseignez les informations demandées pour vous connecter à votre compte",
         style: GoogleFonts.aBeeZee(
-          fontSize: 17,
+          fontSize: MediaQuery.of(context).size.width*0.04,
           fontWeight: FontWeight.w500,
         ),
       ),
@@ -140,7 +140,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
           filled: true,
           hintText: "Numéro ou e-mail",
           hintStyle: GoogleFonts.roboto(
-            fontSize: 20,
+            fontSize: MediaQuery.of(context).size.width*0.04,
             fontWeight: FontWeight.w400,
             color: const Color.fromARGB(255, 38, 38, 85),
           ),
@@ -177,7 +177,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
                 Text(
                   '${country?.name}',
                   style: GoogleFonts.roboto(
-                    fontSize: 16,
+                    fontSize: MediaQuery.of(context).size.width*0.04,
                     color: Colors.black,
                   ),
                 ),
@@ -185,7 +185,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
                 Text(
                   "${country?.dialCode}",
                   style: GoogleFonts.roboto(
-                    fontSize: 16,
+                    fontSize: MediaQuery.of(context).size.width*0.04,
                     color: Colors.black,
                   ),
                 )
@@ -228,7 +228,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
           filled: true,
           hintText: "Votre mot de passe",
           hintStyle: GoogleFonts.roboto(
-            fontSize: 18,
+            fontSize: MediaQuery.of(context).size.width*0.04,
             fontWeight: FontWeight.w400,
             color: const Color.fromARGB(255, 38, 38, 85),
           ),
@@ -268,7 +268,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
                   MaterialPageRoute(builder: (context) => const ResetToken()));
             },
             child: Text("Mot de passe oublié ?",
-                style: GoogleFonts.roboto(fontSize: 17)))
+                style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04,)))
       ]),
     );
   }
@@ -286,7 +286,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
           child: Text(
             "Se connecter",
             style: GoogleFonts.roboto(
-              fontSize: 18,
+              fontSize: MediaQuery.of(context).size.width*0.04,
               fontWeight: FontWeight.w500,
               color: Colors.white,
             ),
@@ -301,7 +301,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
       padding: const EdgeInsets.all(8.0),
       child: Text("Ou",
           style: GoogleFonts.aBeeZee(
-              fontSize: 18,
+              fontSize: MediaQuery.of(context).size.width*0.04,
               color: const Color.fromARGB(255, 38, 38, 85),
               fontWeight: FontWeight.bold)),
     );
@@ -360,7 +360,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
         children: [
           Text(
             "Vous n'avez pas de compte ? -",
-            style: GoogleFonts.roboto(fontSize: 18),
+            style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04,),
           ),
           TextButton(
             onPressed: () {
@@ -372,7 +372,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
             child: Text(
               "Créer",
               style: GoogleFonts.roboto(
-                fontSize: 18,
+                fontSize: MediaQuery.of(context).size.width*0.04,
                 fontWeight: FontWeight.bold,
                 color: Colors.deepPurple[400],
               ),
