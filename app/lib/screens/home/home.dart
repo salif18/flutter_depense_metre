@@ -51,8 +51,6 @@ class _HomeState extends State<Home> {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Container(
-       color:isDark? backgroundDark :const Color.fromARGB(255, 188, 175, 202),
-      child: SafeArea(
         child: RefreshIndicator(
           backgroundColor: const Color.fromARGB(255, 34, 12, 49),
           color: Colors.grey[100],
@@ -85,8 +83,8 @@ class _HomeState extends State<Home> {
                                         future:
                                             provider.loadProfilFromLocalStorage(),
                                         builder: (context, snapshot) {
-                                          final profil = snapshot.data!;
-                                          return Text("${profil.name},",
+                                          final profil = snapshot.data;
+                                          return Text("${profil?.name},",
                                               style: GoogleFonts.roboto(
                                                   fontSize: MediaQuery.of(context).size.width*0.05,
                                                   fontWeight: FontWeight.w900,
@@ -199,7 +197,6 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-      ),
     );
   }
 }

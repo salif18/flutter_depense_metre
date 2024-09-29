@@ -47,11 +47,20 @@ dependencies:
   date_field: ^5.2.1
   percent_indicator: ^4.2.3
   pin_code_fields: ^8.0.1
+  flutter_launcher_icons: ^0.14.1
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/finance.png" # Chemin vers ton icône
+  adaptive_icon_background: "#FFFFFF"     # Couleur d'arrière-plan (optionnel pour Android)
+  adaptive_icon_foreground: "assets/images/finance.png"  # Image de premier plan pour Android (optionnel)
+      # Couleur de fond pour les icônes adaptatives (Android)  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-        const Duration(seconds: 5),
+        const Duration(seconds: 3),
         () => Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: (BuildContext context) => const MainRoutes())));
   }
@@ -41,33 +41,23 @@ class _SplashScreenState extends State<SplashScreen> {
                     child: Column(
                       children: [
                         Container(
+                          width: 100,
+                          height: 100,
                           padding: const EdgeInsets.all(20),
                           decoration: BoxDecoration(
                               color: const Color(0xFF292D4E),
-                              borderRadius: BorderRadius.circular(20)),
-                          child: RichText(
-                            text: TextSpan(children: [
-                              TextSpan(
-                                  text: "D",
-                                  style: GoogleFonts.aBeeZee(
-                                      fontSize: 40,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.white)),
-                              TextSpan(
-                                  text: "mètre",
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.w600,
-                                      color: const Color.fromARGB(
-                                          255, 0, 182, 214))),
-                            ]),
-                          ),
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(
+                                image: AssetImage("assets/images/finance.png"),
+                                fit: BoxFit.contain
+                                )
+                              ),  
                         ),
                         Padding(
                             padding: const EdgeInsets.all(10),
                             child: Text(
-                              "dépensesmètre.pro",
-                              style: GoogleFonts.robotoSerif(fontSize: 16),
+                              "FinanceFlow",
+                              style: GoogleFonts.roboto(fontSize: 16),
                             )),
                       ],
                     )),
@@ -78,10 +68,10 @@ class _SplashScreenState extends State<SplashScreen> {
                       style: GoogleFonts.aBeeZee(fontSize: 16),
                     ),
                     Text(
-                      "DevApps Center",
+                      "devSoft",
                       style: GoogleFonts.roboto(
                           fontSize: 20,
-                          color: Colors.blue,
+                          color: const Color.fromARGB(255, 39, 41, 41),
                           fontWeight: FontWeight.w800),
                     )
                   ],
