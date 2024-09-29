@@ -51,14 +51,16 @@ class _HomeState extends State<Home> {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Container(
-        child: RefreshIndicator(
+       color:isDark? backgroundDark :const Color.fromARGB(255, 188, 175, 202),
+      child: SafeArea(
+        child: Scaffold(
+            backgroundColor: isDark? backgroundDark:const Color.fromARGB(255, 188, 175, 202),
+            body: RefreshIndicator(
           backgroundColor: const Color.fromARGB(255, 34, 12, 49),
           color: Colors.grey[100],
           onRefresh: _refresh,
           displacement: 50,
-          child: Scaffold(
-            backgroundColor: isDark? backgroundDark:const Color.fromARGB(255, 188, 175, 202),
-            body: CustomScrollView(
+          child:CustomScrollView(
               slivers: [
                 SliverList(
                   delegate: SliverChildListDelegate(
@@ -197,6 +199,7 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
+      ),
     );
   }
 }
