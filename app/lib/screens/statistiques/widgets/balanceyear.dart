@@ -39,11 +39,12 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                       return StreamBuilder<ModelYearStats?>(
                           stream: provider.loadStatsYearStream(),
                           builder: (context, snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.waiting) {
-                              return const Center(
-                                  child: CircularProgressIndicator.adaptive());
-                            } else if (snapshot.hasError) {
+                            // if (snapshot.connectionState ==
+                            //     ConnectionState.waiting) {
+                            //   return const Center(
+                            //       child: CircularProgressIndicator.adaptive());
+                            // } else 
+                            if (snapshot.hasError) {
                               return Text("errer: ${snapshot.error}");
                             } else if (snapshot.hasData) {
                               ModelYearStats? statsYear = snapshot.data;
@@ -76,22 +77,26 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                     return StreamBuilder<ModelYearStats?>(
                         stream: provider.loadStatsYearStream(),
                         builder: (context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.waiting) {
-                            return const Center(
-                                child: CircularProgressIndicator());
-                          } else if (snapshot.hasError) {
+                          // if (snapshot.connectionState ==
+                          //     ConnectionState.waiting) {
+                          //   return const Center(
+                          //       child: CircularProgressIndicator());
+                          // } else 
+                          if (snapshot.hasError) {
                             return Text("err:${snapshot.error}");
                           } else if (snapshot.hasData) {
                             ModelYearStats? statsYear = snapshot.data;
-                            return Text(
-                                  "${statsYear?.totalExpenses ?? 0} Fcfa",
-                                  style: GoogleFonts.roboto(
-                                    fontSize:  MediaQuery.of(context).size.width*0.05,
-                                    fontWeight: FontWeight.w500,
-                                    color: isDark ? Colors.red :const Color.fromARGB(255, 18, 1, 65),
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical:8),
+                              child: Text(
+                                    "${statsYear?.totalExpenses ?? 0} Fcfa",
+                                    style: GoogleFonts.roboto(
+                                      fontSize:  MediaQuery.of(context).size.width*0.05,
+                                      fontWeight: FontWeight.w500,
+                                      color: isDark ? Colors.red :const Color.fromARGB(255, 18, 1, 65),
+                                    ),
                                   ),
-                                );
+                            );
                           } else {
                             return const Text("0");
                           }

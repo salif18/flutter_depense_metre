@@ -51,9 +51,7 @@ class _HomeState extends State<Home> {
     Color? backgroundDark = provider.colorBackground;
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
-    return Container(
-       color:isDark? backgroundDark :const Color(0xfff0f1f5),
-      child: SafeArea(
+    return  SafeArea(
         child: Scaffold(
             backgroundColor: isDark? backgroundDark:const Color(0xfff0f1f5),
             body: RefreshIndicator(
@@ -200,7 +198,6 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-      ),
     );
   }
 }

@@ -73,9 +73,7 @@ class _MyStatsState extends State<MyStats> {
     Color? backgroundDark = provider.colorBackground;
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
-    return Container(
-      color:isDark ? backgroundDark : Colors.white,
-      child: SafeArea(
+    return  SafeArea(
         child: RefreshIndicator(
           backgroundColor: const Color.fromARGB(255, 34, 12, 49),
           color: Colors.grey[100],
@@ -147,7 +145,6 @@ class _MyStatsState extends State<MyStats> {
             ),
           ),
         ),
-      ),
     );
   }
 }

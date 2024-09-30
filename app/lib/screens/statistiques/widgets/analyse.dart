@@ -31,9 +31,10 @@ class AnalyseGeneral extends StatelessWidget {
                 return StreamBuilder<ModelRapportCurrentBudgets?>(
                   stream: provider.loadTheStatsBudgetStream(),
                   builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (snapshot.hasData && snapshot.data != null) {
+                    // if (snapshot.connectionState == ConnectionState.waiting) {
+                    //   return const Center(child: CircularProgressIndicator());
+                    // } else 
+                    if (snapshot.hasData && snapshot.data != null) {
                       ModelRapportCurrentBudgets? item = snapshot.data;
                       return Column(
                         children: [
@@ -166,11 +167,12 @@ class AnalyseGeneral extends StatelessWidget {
                     return StreamBuilder<ModelTheMostExpense?>(
                       stream: provider.loadTheMostExpenseStream(),
                       builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                              child: CircularProgressIndicator());
-                        } else if (snapshot.hasData && snapshot.data != null) {
+                        // if (snapshot.connectionState ==
+                        //     ConnectionState.waiting) {
+                        //   return const Center(
+                        //       child: CircularProgressIndicator());
+                        // } else 
+                        if (snapshot.hasData && snapshot.data != null) {
                           ModelTheMostExpense? item = snapshot.data;
                           Map<String, dynamic>? category = item?.category;
                           return Column(
@@ -232,7 +234,7 @@ class AnalyseGeneral extends StatelessWidget {
                           );
                         } else {
                           return Container(
-                            child: Center(child: Text("Pas de donnees enregistre",style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04),)),
+                            child: Center(child: Text("Pas de donnees enregistre",style: GoogleFonts.roboto(color: Colors.white, fontSize: MediaQuery.of(context).size.width*0.04),)),
                           );
                         }
                       },
@@ -254,11 +256,12 @@ class AnalyseGeneral extends StatelessWidget {
                     return StreamBuilder<ModelRapportCurrentBudgets?>(
                       stream: provider.loadTheStatsBudgetStream(),
                       builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                              child: CircularProgressIndicator.adaptive());
-                        } else if (snapshot.hasData && snapshot.data != null) {
+                        // if (snapshot.connectionState ==
+                        //     ConnectionState.waiting) {
+                        //   return const Center(
+                        //       child: CircularProgressIndicator.adaptive());
+                        // } else 
+                        if (snapshot.hasData && snapshot.data != null) {
                           ModelRapportCurrentBudgets? item = snapshot.data;
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -303,7 +306,11 @@ class AnalyseGeneral extends StatelessWidget {
                           );
                         } else {
                           return Container(
-                            child: Center(child: Text("No data"),),
+                            child: Center(child: Text("No data", style: GoogleFonts.roboto(
+                                        fontSize:  MediaQuery.of(context).size.width*0.04,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.white,
+                                      )),),
                           );
                         }
                       },

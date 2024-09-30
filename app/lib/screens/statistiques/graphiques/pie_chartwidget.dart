@@ -25,9 +25,10 @@ class _PieChatWidgetState extends State<PieChartWidget> {
         return StreamBuilder<ModelRapportCurrentBudgets?>(
             stream: provider.loadTheStatsBudgetStream(),
             builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const CircularProgressIndicator();
-              } else if (snapshot.hasData) {
+              // if (snapshot.connectionState == ConnectionState.waiting) {
+              //   return const CircularProgressIndicator();
+              // } else 
+              if (snapshot.hasData) {
                 ModelRapportCurrentBudgets? item = snapshot.data;
                 // conversion au format modelPiedata
                 List<ModelPieData> pieData = [
@@ -89,7 +90,9 @@ class _PieChatWidgetState extends State<PieChartWidget> {
                 );
                 }
               } else {
-               return Container();
+               return Center(
+                    child: Text("Aucuns donnees",
+                        style: GoogleFonts.roboto(fontSize: 20)));
               }
       });
       },

@@ -15,16 +15,17 @@ class _MensuelsState extends State<Mensuels> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
+      height: 110,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Consumer<StatisticsProvider>(
         builder: (context, provider, child) {
           return StreamBuilder<List<ModelMonthStats>?>(
               stream: provider.loadDataMonthStream(),
               builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
-                } else if (snapshot.hasData) {
+                // if (snapshot.connectionState == ConnectionState.waiting) {
+                //   return const Center(child: CircularProgressIndicator());
+                // } else 
+                if (snapshot.hasData) {
                   List<ModelMonthStats>? data = snapshot.data;
                   if (data!.isEmpty) {
                     return _aucunsDonnees(context);
