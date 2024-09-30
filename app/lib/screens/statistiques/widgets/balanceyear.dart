@@ -89,11 +89,11 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                             return Padding(
                               padding: const EdgeInsets.symmetric(vertical:8),
                               child: Text(
-                                    "${statsYear?.totalExpenses ?? 0} Fcfa",
+                                    "${statsYear?.totalExpenses ?? 0} XOF",
                                     style: GoogleFonts.roboto(
                                       fontSize:  MediaQuery.of(context).size.width*0.05,
-                                      fontWeight: FontWeight.w500,
-                                      color: isDark ? Colors.red :const Color.fromARGB(255, 18, 1, 65),
+                                      fontWeight: FontWeight.w600,
+                                      color:  Colors.red 
                                     ),
                                   ),
                             );

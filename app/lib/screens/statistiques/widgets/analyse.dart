@@ -66,7 +66,7 @@ class AnalyseGeneral extends StatelessWidget {
                               style: GoogleFonts.roboto(
                                 fontSize:  MediaQuery.of(context).size.width*0.04,
                                 fontWeight: FontWeight.w500,
-                                color: Colors.grey,
+                                color: const Color.fromARGB(255, 221, 221, 221),
                               ),
                             ),
                           ),
@@ -80,7 +80,7 @@ class AnalyseGeneral extends StatelessWidget {
                                     style: GoogleFonts.roboto(
                                       fontSize:  MediaQuery.of(context).size.width*0.05,
                                       fontWeight: FontWeight.w600,
-                                      color: const Color.fromARGB(255, 255, 5, 5),
+                                      color: Colors.blueAccent,
                                     ),
                                   ),
                                 Expanded(child: Icon(Icons.monetization_on,color:Colors.blueAccent, size: MediaQuery.of(context).size.width*0.06))
