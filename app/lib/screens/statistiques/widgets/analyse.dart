@@ -9,6 +9,8 @@ import 'package:percent_indicator/percent_indicator.dart';
 class AnalyseGeneral extends StatelessWidget {
   const AnalyseGeneral({super.key});
 
+  
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -192,7 +194,7 @@ class AnalyseGeneral extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.only(
                                         top: 8, bottom: 2),
-                                    child: regeneredIcon(
+                                    child: regeneredIcon(context,
                                         category?['name_categories']),
                                   ),
                                   const SizedBox(width: 5),
@@ -318,55 +320,55 @@ class AnalyseGeneral extends StatelessWidget {
 }
 
 // CREER DES ICONS EN FONCTION DU TYPE DE DEPENSES
-Icon regeneredIcon(expense) {
+Icon regeneredIcon(BuildContext context,expense) {
   switch (expense) {
-    case "Electricite":
-      return const Icon(Icons.electrical_services_outlined,
-          color: Colors.white, size: 30);
+    case "Electricité":
+      return Icon(Icons.electrical_services_outlined,
+          color: Colors.white, size: MediaQuery.of(context).size.width*0.05);
     case "Eau":
-      return const Icon(Icons.water_drop, color: Colors.white, size: 30);
+      return Icon(Icons.water_drop, color: Colors.white, size: MediaQuery.of(context).size.width*0.05);
     case "Logement":
-      return const Icon(Icons.home, color: Colors.white, size: 30);
+      return Icon(Icons.home, color: Colors.white, size:MediaQuery.of(context).size.width*0.05);
     case "Communication":
-      return const Icon(Icons.phone_android_outlined,
-          color: Colors.white, size: 30);
+      return Icon(Icons.phone_android_outlined,
+          color: Colors.white, size: MediaQuery.of(context).size.width*0.05);
     case "Forfait":
-      return const Icon(Icons.phonelink_ring_rounded,
-          color: Colors.white, size: 30);
+      return Icon(Icons.phonelink_ring_rounded,
+          color: Colors.white, size:MediaQuery.of(context).size.width*0.05);
     case "Abonnement TV":
-      return const Icon(Icons.tv, color: Colors.white, size: 30);
+      return Icon(Icons.tv, color: Colors.white, size: MediaQuery.of(context).size.width*0.05);
     case "Abonnement Wifi":
-      return const Icon(Icons.wifi, color: Colors.white, size: 30);
+      return Icon(Icons.wifi, color: Colors.white, size: MediaQuery.of(context).size.width*0.05);
     case "Foods":
-      return const Icon(Icons.fastfood_sharp, color: Colors.white, size: 30);
+      return Icon(Icons.fastfood_sharp, color: Colors.white, size: MediaQuery.of(context).size.width*0.05);
     case "Transports":
-      return const Icon(Icons.tram_sharp, color: Colors.white, size: 30);
+      return Icon(Icons.tram_sharp, color: Colors.white, size: MediaQuery.of(context).size.width*0.05);
     case "Shoppings":
-      return const Icon(Icons.checkroom_sharp, color: Colors.white, size: 30);
+      return Icon(Icons.checkroom_sharp, color: Colors.white, size:MediaQuery.of(context).size.width*0.05);
     case "Loteries":
-      return const Icon(Icons.sports_esports_rounded,
-          color: Colors.white, size: 30);
+      return Icon(Icons.sports_esports_rounded,
+          color: Colors.white, size: MediaQuery.of(context).size.width*0.05);
     case "Medical":
-      return const Icon(Icons.medical_services_rounded,
-          color: Colors.white, size: 30);
+      return Icon(Icons.medical_services_rounded,
+          color: Colors.white, size:MediaQuery.of(context).size.width*0.05);
     case "Divertissements":
-      return const Icon(Icons.multitrack_audio_sharp,
-          color: Colors.white, size: 30);
+      return Icon(Icons.multitrack_audio_sharp,
+          color: Colors.white, size: MediaQuery.of(context).size.width*0.05);
     case "Garage":
-      return const Icon(Icons.build, color: Colors.white, size: 30);
+      return Icon(Icons.build, color: Colors.white, size: MediaQuery.of(context).size.width*0.05);
     case "Dettes":
-      return const Icon(Icons.soap_rounded, color: Colors.white, size: 30);
+      return Icon(Icons.soap_rounded, color: Colors.white, size:MediaQuery.of(context).size.width*0.05);
     case "Carburants":
-      return const Icon(Icons.oil_barrel_rounded,
-          color: Colors.white, size: 30);
+      return Icon(Icons.oil_barrel_rounded,
+          color: Colors.white, size: MediaQuery.of(context).size.width*0.05);
     case "Sports":
-      return const Icon(Icons.sports_gymnastics_outlined,
-          color: Colors.white, size: 30);
+      return Icon(Icons.sports_gymnastics_outlined,
+          color: Colors.white, size: MediaQuery.of(context).size.width*0.05);
     case "Gims":
-      return const Icon(Icons.sports_kabaddi_rounded,
-          color: Colors.white, size: 30);
+      return Icon(Icons.sports_kabaddi_rounded,
+          color: Colors.white, size: MediaQuery.of(context).size.width*0.05);
     default:
-      return const Icon(Icons.account_balance_wallet,
-          color: Colors.white, size: 30);
+      return Icon(Icons.account_balance_wallet,
+          color: Colors.white, size: MediaQuery.of(context).size.width*0.05);
   }
 }

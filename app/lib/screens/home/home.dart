@@ -143,7 +143,7 @@ class _HomeState extends State<Home> {
                             borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(40),
                                 topRight: Radius.circular(40)),
-                            color:isDark ? backgroundDark : Colors.white,
+                            color:isDark ? backgroundDark : Colors.white,                        
                           ),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20, right: 20),

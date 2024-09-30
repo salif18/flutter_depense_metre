@@ -178,7 +178,7 @@ class _MainRoutesState extends State<MainRoutes> {
                           style: GoogleFonts.roboto(
                               fontSize:  MediaQuery.of(context).size.width*0.05,
                               fontWeight: FontWeight.w500,
-                              color: Colors.blue))),
+                              color: Colors.black))),
                   const Divider(
                     height: 2,
                   ),
@@ -191,7 +191,7 @@ class _MainRoutesState extends State<MainRoutes> {
                           style: GoogleFonts.roboto(
                               fontSize:  MediaQuery.of(context).size.width*0.05,
                               fontWeight: FontWeight.w500,
-                              color: Colors.blue))),
+                              color: Colors.black))),
                   const Divider(
                     height: 2,
                   ),
@@ -203,7 +203,7 @@ class _MainRoutesState extends State<MainRoutes> {
                           style: GoogleFonts.roboto(
                               fontSize:  MediaQuery.of(context).size.width*0.05,
                               fontWeight: FontWeight.w500,
-                              color: Colors.blue)))
+                              color: Colors.black)))
                 ]),
           );
         });

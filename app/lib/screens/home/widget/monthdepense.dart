@@ -13,6 +13,8 @@ import 'package:gestionary/screens/save_expense/saveexpense.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import '../../../utils/generate_icons.dart';
+
 class MyMonthDepense extends StatefulWidget {
   const MyMonthDepense({super.key});
 
@@ -109,7 +111,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                           ),
                           const SizedBox(width: 5),
                           Text(
-                            "$totalMonth",
+                            "$totalMonth XOF",
                             style: GoogleFonts.roboto(
                               color: isDark? Colors.red : Colors.black,
                                 fontSize: MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w600),
@@ -186,7 +188,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
           children: [
             Row(
               children: [
-                regeneredIcon(category?["name_categories".toLowerCase()] ?? ""),
+                regeneredIcon(context,category?["name_categories".toLowerCase()] ?? ""),
                 const SizedBox(
                   width: 10,
                 ),
@@ -198,9 +200,9 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
             ),
             Row(
               children: [
-                Text("${expense.amount}",
+                Text("${expense.amount} XOF",
                     style: GoogleFonts.roboto(
-                      color: isDark ? Colors.green : Colors.red,
+                      color: isDark ? Colors.green : Colors.black,
                         fontSize: MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w800)),
                 const SizedBox(
                   width: 10,
@@ -237,60 +239,3 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
   }
 }
 
-// CREER DES ICONS EN FONCTION DU TYPE DE DEPENSES
-Icon regeneredIcon(expense) {
-  switch (expense) {
-    case "Electricite":
-      return const Icon(Icons.electrical_services_outlined,
-          color: Colors.amber, size: 30);
-    case "L'eau":
-      return const Icon(Icons.water_drop, color: Colors.blue, size: 30);
-    case "Logement":
-      return const Icon(Icons.home, color: Colors.green, size: 30);
-    case "Abonnement TV":
-      return const Icon(Icons.tv,
-          color: Color.fromARGB(255, 7, 6, 1), size: 30);
-    case "Communication":
-      return const Icon(Icons.phone_android_outlined,
-          color: Color.fromARGB(255, 46, 37, 34), size: 30);
-    case "Abonnement Wifi":
-      return const Icon(Icons.wifi,
-          color: Color.fromARGB(255, 59, 144, 255), size: 30);
-    case "Foods":
-      return const Icon(Icons.fastfood_rounded, color: Colors.brown, size: 30);
-    case "Forfait":
-      return const Icon(Icons.phonelink_ring_rounded,
-          color: Color.fromARGB(255, 10, 44, 116), size: 30);
-    case "Transports":
-      return const Icon(Icons.tram_sharp,
-          color: Color.fromARGB(255, 206, 59, 59), size: 30);
-    case "Shoppings":
-      return const Icon(Icons.checkroom_sharp,
-          color: Color.fromARGB(255, 51, 177, 135), size: 30);
-    case "Medical":
-      return const Icon(Icons.medical_services_outlined,
-          color: Color.fromARGB(255, 238, 11, 11), size: 30);
-    case "Loteries":
-      return const Icon(Icons.sports_esports_rounded,
-          color: Color.fromARGB(255, 206, 0, 96), size: 30);
-    case "Divertissements":
-      return const Icon(Icons.multitrack_audio_sharp,
-          color: Color.fromARGB(255, 43, 13, 150), size: 30);
-    case "Garage":
-      return const Icon(Icons.build, color: Colors.blueAccent, size: 30);
-    case "Dettes":
-      return const Icon(Icons.soap_rounded,
-          color: Color.fromARGB(255, 255, 137, 68), size: 30);
-    case "Sports":
-      return const Icon(Icons.sports_gymnastics_outlined,
-          color: Color.fromARGB(255, 68, 218, 255), size: 30);
-       case "Gims":
-      return const Icon(Icons.sports_kabaddi_rounded,
-          color: Color.fromARGB(255, 255, 94, 0), size: 30);
-    case "Carburants":
-      return const Icon(Icons.oil_barrel_rounded, color: Colors.red, size: 30);
-    default:
-      return const Icon(Icons.account_balance_wallet,
-          color: Colors.grey, size: 30);
-  }
-}

@@ -48,10 +48,11 @@ class _CreateCategoriesState extends State<CreateCategories> {
         if (res.statusCode == 201) {
           _cateApi.showSnackBarSuccessPersonalized(
               context, decodedData["message"].toString());
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const CreateCategories()));
+              Navigator.pop(context);
+          // Navigator.pushReplacement(
+          //     context,
+          //     MaterialPageRoute(
+          //         builder: (context) => const CreateCategories()));
         } else {
           _cateApi.showSnackBarErrorPersonalized(
               context, decodedData["message"]);
