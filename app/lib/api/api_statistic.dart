@@ -1,6 +1,7 @@
+import 'package:gestionary/server_uri.dart';
 import 'package:http/http.dart' as http;
 
-const String url = "http://10.0.2.2:8000/api";
+const String url = AppURI.URLSERVER;
 
 class StatisticsApi {
  

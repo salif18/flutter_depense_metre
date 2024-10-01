@@ -1,10 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:gestionary/server_uri.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
-const String urlServer ="http://10.0.2.2:8000/api";
+const String urlServer =AppURI.URLSERVER;
 
 class ExpenseServicesApi{
   //ajouter depense
