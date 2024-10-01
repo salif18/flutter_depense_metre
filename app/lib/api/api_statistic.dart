@@ -1,4 +1,4 @@
-import 'package:gestionary/server_uri.dart';
+import 'package:gestionary/utils/server_uri.dart';
 import 'package:http/http.dart' as http;
 
 const String url = AppURI.URLSERVER;
