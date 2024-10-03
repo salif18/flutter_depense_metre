@@ -20,8 +20,10 @@ Icon regeneredIcon(BuildContext context, String expense) {
     case "Abonnement Wifi":
       return Icon(Icons.wifi,
           color: Color.fromARGB(255, 59, 144, 255), size: iconSize);
-    case "Foods":
+           case "Foods":
       return Icon(Icons.fastfood_rounded, color: Colors.brown, size: iconSize);
+    case "Echange bancaire":
+      return Icon(Icons.sync, color: const Color.fromARGB(255, 183, 0, 255), size: iconSize);
     case "Forfait":
       return Icon(Icons.phonelink_ring_rounded,
           color: Color.fromARGB(255, 10, 44, 116), size: iconSize);

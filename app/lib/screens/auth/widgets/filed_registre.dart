@@ -70,10 +70,12 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
               MaterialPageRoute(builder: (context) => const MainRoutes()));
         } else {
           api.showSnackBarErrorPersonalized(context, body["message"]);
+           print(body["message"]);
         }
       } catch (error) {
         api.showSnackBarErrorPersonalized(context,
             "Erreur lors de l'envoi des données , veuillez réessayer. $error");
+            print(error);
       }
     }
   }
